@@ -1,0 +1,260 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"_phase",
+				"_phaseSpaceMutex"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "G4PhaseSpaceReader.cc",
+			"settings":
+			{
+				"buffer_size": 7181,
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src"
+	],
+	"file_history":
+	[
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/G4PhaseSpaceReader.cc",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/PhaseSpaceAccessTool.cc",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/PrimaryGeneratorAction.cc",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/run.sh",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/macros/test.mac",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Data/G3_beamline.txt",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/include/PhaseSpaceAccessTool.hh",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/CMakeLists.txt",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/include/PrimaryGeneratorAction.hh",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/ActionInitialization.cc",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/include/ActionInitialization.hh",
+		"/home/joseph/Dropbox/Documents/Work/Projects/MDA_Microdosimetry/software/MicroTrackGenerator/src/RunAction.cc",
+		"/home/joseph/Dropbox/Documents/Work/Projects/MDA_Microdosimetry/software/MicroTrackGenerator/src/ActionInitialization.cc",
+		"/usr/local/lib/geant4-v11.2.0/examples/advanced/exp_microdosimetry/src/ActionInitialization.cc",
+		"/usr/local/lib/geant4-v11.2.0/examples/advanced/exp_microdosimetry/exp_microdosimetry.cc",
+		"/usr/local/lib/geant4-v11.2.0/examples/basic/B2/B2b/src/ActionInitialization.cc",
+		"/usr/local/lib/geant4-v11.2.0/examples/basic/B2/B2b/exampleB2b.cc",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Data/testPhaseSpace.txt",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/DetectorConstruction.cc",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/DetectorConstructionMessenger.cc",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/include/DetectorConstruction.hh",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Data/G3_beamline.w.txt",
+		"/usr/local/lib/geant4-v11.2.0/examples/extended/physicslists/genericPL/genericPL.cc",
+		"/usr/local/lib/geant4-11.2-build/CMakeCache.txt",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/extern/src/CommandLineParser.cc",
+		"/home/joseph/Dropbox/Documents/Work/Projects/MDA_Microdosimetry/software/MicroTrackGenerator/MicroTrackGenerator.cc",
+		"/usr/local/lib/geant4-v11.2.0/examples/advanced/exp_microdosimetry/src/PhysicsList.cc",
+		"/usr/local/lib/geant4-v11.2.0/examples/advanced/hadrontherapy/src/HadrontherapyPhysicsList.cc",
+		"/usr/local/lib/geant4-v11.2.0/examples/extended/physicslists/factory/factory.cc",
+		"/usr/local/lib/geant4-v11.2.0/examples/advanced/hadrontherapy/src/HadrontherapyRBE.cc",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/include/PrimaryGeneratorMessenger.hh",
+		"/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/PrimaryGeneratorMessenger.cc",
+		"/home/joseph/.bashrc"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"path",
+			"unique_lock",
+			"primary",
+			"myConstructors",
+			"myCOnstructors",
+			"cutforGamma",
+			"stopping",
+			"export"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"PhysicsList"
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "G4PhaseSpaceReader.cc",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7181,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2188,
+								2162
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 924.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 37.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "G4PSReader.sublime-project",
+	"replace":
+	{
+		"height": 70.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 306.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

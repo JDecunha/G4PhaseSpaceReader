@@ -1,0 +1,2 @@
+/usr/bin/ar qc libextern.a CMakeFiles/extern.dir/extern/src/CommandLineParser.cc.o
+/usr/bin/ranlib libextern.a
