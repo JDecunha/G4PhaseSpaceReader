@@ -1,23 +1,16 @@
 //MicroTrackGenerator
 #include "DetectorConstruction.hh"
 #include "PrimaryGeneratorAction.hh"
-#include "PrimaryGeneratorMessenger.hh"
 #include "PhaseSpaceAccessTool.hh"
 //Geant4
 #include "G4SystemOfUnits.hh"
 #include "G4ParticleGun.hh"
 #include "G4ParticleTable.hh"
-#include "G4RunManager.hh"
-#include "G4Threading.hh"
-#ifdef G4MULTITHREADED
-  #include "G4MTRunManager.hh"
-#endif
 
 PrimaryGeneratorAction::PrimaryGeneratorAction()
 {
     //Create the gun and messenger
     gun = new G4ParticleGun();
-    pPrimaryMessenger = new PrimaryGeneratorMessenger(this);
 
     //Set some default values (I think having defaults may help with troubleshooting)
     gun->SetParticlePosition(G4ThreeVector(0,0,48*cm)); //Set the primary particle origin position to 0, 0, 48 cm (location of first phase space Uwe sent). 
@@ -28,7 +21,6 @@ PrimaryGeneratorAction::PrimaryGeneratorAction()
 PrimaryGeneratorAction::~PrimaryGeneratorAction()
 {
     delete gun;
-    delete pPrimaryMessenger;
 }
 
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
@@ -76,6 +68,8 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
     else if (ptclType = 3) { particle = particleTable->FindParticle("electron"); }
     else if (ptclType = 9) { particle = particleTable->FindParticle("proton"); }
     else {throw std::runtime_error("Phase space reader currently only reads electrons, neutrons, protons, and photons. ?! What is THIS particle !! ");}
+
+    gun->SetParticleDefinition(particle);
 
     //Shoot!
     gun->GeneratePrimaryVertex(event);

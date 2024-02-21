@@ -320,6 +320,30 @@ src/DetectorConstructionMessenger.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/DetectorConstructionMessenger.cc.s
 .PHONY : src/DetectorConstructionMessenger.cc.s
 
+src/EdepScorer.o: src/EdepScorer.cc.o
+.PHONY : src/EdepScorer.o
+
+# target to build an object file
+src/EdepScorer.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/EdepScorer.cc.o
+.PHONY : src/EdepScorer.cc.o
+
+src/EdepScorer.i: src/EdepScorer.cc.i
+.PHONY : src/EdepScorer.i
+
+# target to preprocess a source file
+src/EdepScorer.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/EdepScorer.cc.i
+.PHONY : src/EdepScorer.cc.i
+
+src/EdepScorer.s: src/EdepScorer.cc.s
+.PHONY : src/EdepScorer.s
+
+# target to generate assembly for a file
+src/EdepScorer.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/EdepScorer.cc.s
+.PHONY : src/EdepScorer.cc.s
+
 src/ParallelWorldConstruction.o: src/ParallelWorldConstruction.cc.o
 .PHONY : src/ParallelWorldConstruction.o
 
@@ -392,29 +416,29 @@ src/PrimaryGeneratorAction.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/PrimaryGeneratorAction.cc.s
 .PHONY : src/PrimaryGeneratorAction.cc.s
 
-src/PrimaryGeneratorMessenger.o: src/PrimaryGeneratorMessenger.cc.o
-.PHONY : src/PrimaryGeneratorMessenger.o
+src/RunAction.o: src/RunAction.cc.o
+.PHONY : src/RunAction.o
 
 # target to build an object file
-src/PrimaryGeneratorMessenger.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.o
-.PHONY : src/PrimaryGeneratorMessenger.cc.o
+src/RunAction.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/RunAction.cc.o
+.PHONY : src/RunAction.cc.o
 
-src/PrimaryGeneratorMessenger.i: src/PrimaryGeneratorMessenger.cc.i
-.PHONY : src/PrimaryGeneratorMessenger.i
+src/RunAction.i: src/RunAction.cc.i
+.PHONY : src/RunAction.i
 
 # target to preprocess a source file
-src/PrimaryGeneratorMessenger.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.i
-.PHONY : src/PrimaryGeneratorMessenger.cc.i
+src/RunAction.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/RunAction.cc.i
+.PHONY : src/RunAction.cc.i
 
-src/PrimaryGeneratorMessenger.s: src/PrimaryGeneratorMessenger.cc.s
-.PHONY : src/PrimaryGeneratorMessenger.s
+src/RunAction.s: src/RunAction.cc.s
+.PHONY : src/RunAction.s
 
 # target to generate assembly for a file
-src/PrimaryGeneratorMessenger.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.s
-.PHONY : src/PrimaryGeneratorMessenger.cc.s
+src/RunAction.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/RunAction.cc.s
+.PHONY : src/RunAction.cc.s
 
 src/StraightLineParameterisation.o: src/StraightLineParameterisation.cc.o
 .PHONY : src/StraightLineParameterisation.o
@@ -439,6 +463,30 @@ src/StraightLineParameterisation.s: src/StraightLineParameterisation.cc.s
 src/StraightLineParameterisation.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/StraightLineParameterisation.cc.s
 .PHONY : src/StraightLineParameterisation.cc.s
+
+src/chargescorer.o: src/chargescorer.cc.o
+.PHONY : src/chargescorer.o
+
+# target to build an object file
+src/chargescorer.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/chargescorer.cc.o
+.PHONY : src/chargescorer.cc.o
+
+src/chargescorer.i: src/chargescorer.cc.i
+.PHONY : src/chargescorer.i
+
+# target to preprocess a source file
+src/chargescorer.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/chargescorer.cc.i
+.PHONY : src/chargescorer.cc.i
+
+src/chargescorer.s: src/chargescorer.cc.s
+.PHONY : src/chargescorer.s
+
+# target to generate assembly for a file
+src/chargescorer.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/chargescorer.cc.s
+.PHONY : src/chargescorer.cc.s
 
 # Help Target
 help:
@@ -470,6 +518,9 @@ help:
 	@echo "... src/DetectorConstructionMessenger.o"
 	@echo "... src/DetectorConstructionMessenger.i"
 	@echo "... src/DetectorConstructionMessenger.s"
+	@echo "... src/EdepScorer.o"
+	@echo "... src/EdepScorer.i"
+	@echo "... src/EdepScorer.s"
 	@echo "... src/ParallelWorldConstruction.o"
 	@echo "... src/ParallelWorldConstruction.i"
 	@echo "... src/ParallelWorldConstruction.s"
@@ -479,12 +530,15 @@ help:
 	@echo "... src/PrimaryGeneratorAction.o"
 	@echo "... src/PrimaryGeneratorAction.i"
 	@echo "... src/PrimaryGeneratorAction.s"
-	@echo "... src/PrimaryGeneratorMessenger.o"
-	@echo "... src/PrimaryGeneratorMessenger.i"
-	@echo "... src/PrimaryGeneratorMessenger.s"
+	@echo "... src/RunAction.o"
+	@echo "... src/RunAction.i"
+	@echo "... src/RunAction.s"
 	@echo "... src/StraightLineParameterisation.o"
 	@echo "... src/StraightLineParameterisation.i"
 	@echo "... src/StraightLineParameterisation.s"
+	@echo "... src/chargescorer.o"
+	@echo "... src/chargescorer.i"
+	@echo "... src/chargescorer.s"
 .PHONY : help
 
 

@@ -70,7 +70,6 @@ int main(int argc,char** argv)
   PhysicsConstructors->push_back("G4HadronElasticPhysicsHP"); //Elastic hadron physics 
   PhysicsConstructors->push_back("G4DecayPhysics"); //General radioactive decay
   PhysicsConstructors->push_back("G4StoppingPhysics"); //For nuclear capture of anti-particles
-  //PhysicsList->push_back("G4NeutronTrackingCut"); //By default kills neutrons after 10 microseconds of tracking
   G4GenericPhysicsList* pPhysicsList = new G4GenericPhysicsList(PhysicsConstructors);
 
   // Set up the phase space access tool (implements a phasespace for multiple threads accessing a phase space file)
@@ -80,7 +79,7 @@ int main(int argc,char** argv)
     psAccess.SetPhaseSpacePath(commandLine->GetOption());
   }
 
-  // Set up the geometry (physical  and parallel world)
+  // Set up the geometry (physical and parallel world)
   auto pDetectorConstruction = new DetectorConstruction();
   G4String scoringWorldName = "ScoringWorld";
   pDetectorConstruction->RegisterParallelWorld(new ParallelWorldConstruction(scoringWorldName)); //Connect the detector construction to the parallel world. (This is done if you want to use layered mass geometry)

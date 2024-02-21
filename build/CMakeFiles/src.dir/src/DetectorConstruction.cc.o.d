@@ -246,6 +246,84 @@ CMakeFiles/src.dir/src/DetectorConstruction.cc.o: \
  /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/ThreeVector.icc \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4UIparameter.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4UItokenNum.hh \
+ /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/include/chargescorer.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4VPrimitiveScorer.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4MultiFunctionalDetector.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4HCofThisEvent.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4Allocator.hh \
+ /usr/include/c++/11/cstddef \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4AllocatorPool.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4VHitsCollection.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4Step.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4VPhysicalVolume.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/geomdefs.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4RotationMatrix.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/Rotation.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/RotationInterfaces.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/LorentzVector.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/LorentzVector.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/AxisAngle.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/AxisAngle.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/RotationInterfaces.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/RotationX.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/RotationX.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Units/PhysicalConstants.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Units/SystemOfUnits.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/RotationY.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/RotationY.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/RotationZ.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/RotationZ.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/Rotation.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4GeomSplitter.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/geomwdefs.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4AutoLock.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4Threading.hh \
+ /usr/include/c++/11/condition_variable \
+ /usr/include/c++/11/bits/shared_ptr.h \
+ /usr/include/c++/11/bits/shared_ptr_base.h \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/ext/concurrence.h /usr/include/c++/11/future \
+ /usr/include/c++/11/atomic /usr/include/c++/11/bits/atomic_base.h \
+ /usr/include/c++/11/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/11/bits/atomic_futex.h \
+ /usr/include/c++/11/bits/std_thread.h /usr/include/c++/11/thread \
+ /usr/include/c++/11/bits/this_thread_sleep.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4VPhysicalVolume.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4StepPoint.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4SteppingControl.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4StepStatus.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4TouchableHandle.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4VTouchable.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4TouchableHistory.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4NavigationHistory.hh \
+ /usr/include/assert.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4AffineTransform.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4Transform3D.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Geometry/Transform3D.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Geometry/Transform3D.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Geometry/Point3D.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Geometry/Vector3D.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Geometry/Normal3D.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4AffineTransform.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4NavigationLevel.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4NavigationLevelRep.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4NavigationLevelRep.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4NavigationLevel.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4NavigationHistoryPool.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4NavigationHistory.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4LogicalVolume.hh \
+ /usr/include/c++/11/memory \
+ /usr/include/c++/11/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \
+ /usr/include/c++/11/bits/shared_ptr_atomic.h \
+ /usr/include/c++/11/backward/auto_ptr.h \
+ /usr/include/c++/11/pstl/glue_memory_defs.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4Region.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4Region.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4LogicalVolume.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4TouchableHistory.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4ReferenceCountedHandle.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4Material.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4Element.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4ElementTable.hh \
@@ -272,12 +350,43 @@ CMakeFiles/src.dir/src/DetectorConstruction.cc.o: \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4OrderedTable.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4DataVector.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4DataVector.icc \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Units/PhysicalConstants.h \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Units/SystemOfUnits.h \
- /usr/include/assert.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4StepPoint.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4TrackVector.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4Profiler.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4Profiler.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/PTL/Globals.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/PTL/Types.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/PTL/Utility.hh \
+ /usr/include/c++/11/set /usr/include/c++/11/bits/stl_set.h \
+ /usr/include/c++/11/bits/stl_multiset.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4Step.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4Track.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/trkdefs.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4DynamicParticle.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4ElectronOccupancy.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/pwdefs.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4LorentzVector.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4ParticleDefinition.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4PDefManager.hh \
+ /usr/include/c++/11/stdlib.h \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4ParticleDefinition.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4ParticleMomentum.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4DynamicParticle.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4TrackStatus.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4VUserTrackInformation.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4PhysicsModelCatalog.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4Track.icc \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4VHit.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4VReadOutGeometry.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4SensitiveVolumeList.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4VSensitiveDetector.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4CollectionNameVector.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4VSDFilter.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4THitsMap.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4THitsCollection.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4Material.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4NistManager.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4ICRU90StoppingData.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4Material.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4NistElementBuilder.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4NistMaterialBuilder.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4Pow.hh \
@@ -288,7 +397,6 @@ CMakeFiles/src.dir/src/DetectorConstruction.cc.o: \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4GeomConfig.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4CSGSolid.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4VSolid.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/geomdefs.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4VSolid.icc \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4Polyhedron.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/HepPolyhedron.h \
@@ -296,59 +404,22 @@ CMakeFiles/src.dir/src/DetectorConstruction.cc.o: \
  /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/TwoVector.h \
  /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/TwoVector.icc \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4Point3D.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Geometry/Point3D.h \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Geometry/BasicVector3D.h \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4Normal3D.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Geometry/Normal3D.h \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4Transform3D.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Geometry/Transform3D.h \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Geometry/Transform3D.icc \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/Rotation.h \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/RotationInterfaces.h \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/LorentzVector.h \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/LorentzVector.icc \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/AxisAngle.h \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/AxisAngle.icc \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/RotationInterfaces.icc \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/RotationX.h \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/RotationX.icc \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/RotationY.h \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/RotationY.icc \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/RotationZ.h \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/RotationZ.icc \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/Rotation.icc \
- /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Geometry/Vector3D.h \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4Visible.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4Visible.icc \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4Box.icc \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4LogicalVolume.hh \
- /usr/include/c++/11/memory \
- /usr/include/c++/11/bits/stl_raw_storage_iter.h \
- /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \
- /usr/include/c++/11/bits/shared_ptr.h \
- /usr/include/c++/11/bits/shared_ptr_base.h \
- /usr/include/c++/11/bits/allocated_ptr.h \
- /usr/include/c++/11/ext/concurrence.h \
- /usr/include/c++/11/bits/shared_ptr_atomic.h \
- /usr/include/c++/11/bits/atomic_base.h \
- /usr/include/c++/11/bits/atomic_lockfree_defines.h \
- /usr/include/c++/11/backward/auto_ptr.h \
- /usr/include/c++/11/pstl/glue_memory_defs.h \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4Region.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4GeomSplitter.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/geomwdefs.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4AutoLock.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4Threading.hh \
- /usr/include/c++/11/condition_variable /usr/include/c++/11/future \
- /usr/include/c++/11/atomic /usr/include/c++/11/bits/atomic_futex.h \
- /usr/include/c++/11/bits/std_thread.h /usr/include/c++/11/thread \
- /usr/include/c++/11/bits/this_thread_sleep.h \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4Region.icc \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4VPhysicalVolume.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4RotationMatrix.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4VPhysicalVolume.icc \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4LogicalVolume.icc \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4VPhysicalVolume.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4PVPlacement.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4PVParameterised.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4PVReplica.hh
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4PVReplica.hh \
+ /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/include/StraightLineParameterisation.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4VPVParameterisation.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4VVolumeMaterialScanner.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4ThreeVector.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/globals.hh \
+ /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/include/EdepScorer.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4SDManager.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4HCtable.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4SDStructure.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4MultiFunctionalDetector.hh

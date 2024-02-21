@@ -1,5 +1,5 @@
 #Set verbosity
-	/tracking/verbose 0
+	/tracking/verbose 1
 	/process/em/verbose 1
 	/run/verbose 1
 
