@@ -8,15 +8,12 @@
 
 RunAction::RunAction()
 {
-  // set printing event number per each event
-  //G4RunManager::GetRunManager()->SetPrintProgress(1);
-
   auto analysisManager = G4AnalysisManager::Instance();
   analysisManager->SetVerboseLevel(1);
-  analysisManager->SetNtupleMerging(true);
+  analysisManager->SetNtupleMerging(false);
 
   // Creating histograms
-  analysisManager->CreateH1("Dose" ,"Dose along phantom profile", 101, 0, 100);
+  analysisManager->CreateH1("Dose" ,"Dose along phantom profile", 201, 0, 200);
   analysisManager->CreateH1("DoseUncertainty" ,"Dose Uncertainty along phantom profile", 101, 0, 100);
   //TODO: Make my H2 here later
 }
@@ -24,7 +21,7 @@ RunAction::RunAction()
 void RunAction::BeginOfRunAction(const G4Run* /*run*/)
 {
   auto analysisManager = G4AnalysisManager::Instance();
-  G4String fileName = "test_output.root";
+  G4String fileName = "test_output.csv";
   analysisManager->OpenFile(fileName);
 }
 

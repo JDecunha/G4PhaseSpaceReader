@@ -1,2 +1,0 @@
-/usr/bin/ar qc libsrc.a CMakeFiles/src.dir/src/ActionInitialization.cc.o CMakeFiles/src.dir/src/DetectorConstruction.cc.o CMakeFiles/src.dir/src/DetectorConstructionMessenger.cc.o CMakeFiles/src.dir/src/EdepScorer.cc.o CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.o CMakeFiles/src.dir/src/PhaseSpaceAccessTool.cc.o CMakeFiles/src.dir/src/PrimaryGeneratorAction.cc.o CMakeFiles/src.dir/src/RunAction.cc.o CMakeFiles/src.dir/src/StraightLineParameterisation.cc.o CMakeFiles/src.dir/src/chargescorer.cc.o
-/usr/bin/ranlib libsrc.a

@@ -10,7 +10,8 @@ class ParallelWorldConstruction : public G4VUserParallelWorld {
 
   ~ParallelWorldConstruction() { }
 
-  virtual void Construct();
+  virtual void Construct() override;
+  virtual void ConstructSD() override;
 
   private:
 

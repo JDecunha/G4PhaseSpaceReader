@@ -1,9 +1,10 @@
 #Set verbosity
-	/tracking/verbose 1
+	/tracking/verbose 0
 	/process/em/verbose 1
 	/run/verbose 1
+	/analysis/verbose 1
 
 #Initialize the run manager
 	/run/initialize
 
-/run/beamOn 1000000
+/run/beamOn 10000
