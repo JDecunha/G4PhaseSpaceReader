@@ -320,6 +320,30 @@ src/DetectorConstructionMessenger.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/DetectorConstructionMessenger.cc.s
 .PHONY : src/DetectorConstructionMessenger.cc.s
 
+src/ParallelWorldConstruction.o: src/ParallelWorldConstruction.cc.o
+.PHONY : src/ParallelWorldConstruction.o
+
+# target to build an object file
+src/ParallelWorldConstruction.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.o
+.PHONY : src/ParallelWorldConstruction.cc.o
+
+src/ParallelWorldConstruction.i: src/ParallelWorldConstruction.cc.i
+.PHONY : src/ParallelWorldConstruction.i
+
+# target to preprocess a source file
+src/ParallelWorldConstruction.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.i
+.PHONY : src/ParallelWorldConstruction.cc.i
+
+src/ParallelWorldConstruction.s: src/ParallelWorldConstruction.cc.s
+.PHONY : src/ParallelWorldConstruction.s
+
+# target to generate assembly for a file
+src/ParallelWorldConstruction.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.s
+.PHONY : src/ParallelWorldConstruction.cc.s
+
 src/PhaseSpaceAccessTool.o: src/PhaseSpaceAccessTool.cc.o
 .PHONY : src/PhaseSpaceAccessTool.o
 
@@ -392,6 +416,30 @@ src/PrimaryGeneratorMessenger.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.s
 .PHONY : src/PrimaryGeneratorMessenger.cc.s
 
+src/StraightLineParameterisation.o: src/StraightLineParameterisation.cc.o
+.PHONY : src/StraightLineParameterisation.o
+
+# target to build an object file
+src/StraightLineParameterisation.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/StraightLineParameterisation.cc.o
+.PHONY : src/StraightLineParameterisation.cc.o
+
+src/StraightLineParameterisation.i: src/StraightLineParameterisation.cc.i
+.PHONY : src/StraightLineParameterisation.i
+
+# target to preprocess a source file
+src/StraightLineParameterisation.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/StraightLineParameterisation.cc.i
+.PHONY : src/StraightLineParameterisation.cc.i
+
+src/StraightLineParameterisation.s: src/StraightLineParameterisation.cc.s
+.PHONY : src/StraightLineParameterisation.s
+
+# target to generate assembly for a file
+src/StraightLineParameterisation.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/src.dir/build.make CMakeFiles/src.dir/src/StraightLineParameterisation.cc.s
+.PHONY : src/StraightLineParameterisation.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -422,6 +470,9 @@ help:
 	@echo "... src/DetectorConstructionMessenger.o"
 	@echo "... src/DetectorConstructionMessenger.i"
 	@echo "... src/DetectorConstructionMessenger.s"
+	@echo "... src/ParallelWorldConstruction.o"
+	@echo "... src/ParallelWorldConstruction.i"
+	@echo "... src/ParallelWorldConstruction.s"
 	@echo "... src/PhaseSpaceAccessTool.o"
 	@echo "... src/PhaseSpaceAccessTool.i"
 	@echo "... src/PhaseSpaceAccessTool.s"
@@ -431,6 +482,9 @@ help:
 	@echo "... src/PrimaryGeneratorMessenger.o"
 	@echo "... src/PrimaryGeneratorMessenger.i"
 	@echo "... src/PrimaryGeneratorMessenger.s"
+	@echo "... src/StraightLineParameterisation.o"
+	@echo "... src/StraightLineParameterisation.i"
+	@echo "... src/StraightLineParameterisation.s"
 .PHONY : help
 
 

@@ -349,4 +349,6 @@ CMakeFiles/src.dir/src/DetectorConstruction.cc.o: \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4VPhysicalVolume.icc \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4LogicalVolume.icc \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4VPhysicalVolume.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4PVPlacement.hh
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4PVPlacement.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4PVParameterised.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4PVReplica.hh

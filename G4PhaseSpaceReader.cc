@@ -2,20 +2,21 @@
 #include "ActionInitialization.hh"
 #include "DetectorConstruction.hh"
 #include "PhaseSpaceAccessTool.hh"
+#include "ParallelWorldConstruction.hh"
 
 //Extern
 #include "CommandLineParser.hh"
 
 //Geant4
 #include "G4Types.hh"
-#include "G4UImanager.hh"
 #include "G4GenericPhysicsList.hh"
-#include "G4VModularPhysicsList.hh"
+#include "G4ParallelWorldPhysics.hh"
 #ifdef G4MULTITHREADED
   #include "G4MTRunManager.hh"
 #else
   #include "G4RunManager.hh"
 #endif
+#include "G4UImanager.hh"
 
 //Global command line parser
 CommandLineParser* parser(0);
@@ -62,14 +63,15 @@ int main(int argc,char** argv)
   #endif
   
   // First time using a G4GenericPhysicsList, this method seems great
-  auto PhysicsList = new std::vector<G4String>;
-  PhysicsList->push_back("G4EmStandardPhysics_option4"); //EM
-  PhysicsList->push_back("G4HadronPhysicsQGSP_BIC_AllHP"); //Inelastic hadron physics (protons, neutrons, pions, kaons)
-  PhysicsList->push_back("G4IonBinaryCascadePhysics"); //Inelastic hadron physics (heavy ions)
-  PhysicsList->push_back("G4HadronElasticPhysicsHP"); //Elastic hadron physics 
-  PhysicsList->push_back("G4DecayPhysics"); //General radioactive decay
-  PhysicsList->push_back("G4StoppingPhysics"); //For nuclear capture of anti-particles
+  auto PhysicsConstructors = new std::vector<G4String>;
+  PhysicsConstructors->push_back("G4EmStandardPhysics_option4"); //EM
+  PhysicsConstructors->push_back("G4HadronPhysicsQGSP_BIC_AllHP"); //Inelastic hadron physics (protons, neutrons, pions, kaons)
+  PhysicsConstructors->push_back("G4IonBinaryCascadePhysics"); //Inelastic hadron physics (heavy ions)
+  PhysicsConstructors->push_back("G4HadronElasticPhysicsHP"); //Elastic hadron physics 
+  PhysicsConstructors->push_back("G4DecayPhysics"); //General radioactive decay
+  PhysicsConstructors->push_back("G4StoppingPhysics"); //For nuclear capture of anti-particles
   //PhysicsList->push_back("G4NeutronTrackingCut"); //By default kills neutrons after 10 microseconds of tracking
+  G4GenericPhysicsList* pPhysicsList = new G4GenericPhysicsList(PhysicsConstructors);
 
   // Set up the phase space access tool (implements a phasespace for multiple threads accessing a phase space file)
   PhaseSpaceAccessTool psAccess;
@@ -78,9 +80,15 @@ int main(int argc,char** argv)
     psAccess.SetPhaseSpacePath(commandLine->GetOption());
   }
 
+  // Set up the geometry (physical  and parallel world)
+  auto pDetectorConstruction = new DetectorConstruction();
+  G4String scoringWorldName = "ScoringWorld";
+  pDetectorConstruction->RegisterParallelWorld(new ParallelWorldConstruction(scoringWorldName)); //Connect the detector construction to the parallel world. (This is done if you want to use layered mass geometry)
+  pPhysicsList->RegisterPhysics(new G4ParallelWorldPhysics(scoringWorldName));
+
   // Set mandatory user initialization classes
-  runManager->SetUserInitialization(new DetectorConstruction);
-  runManager->SetUserInitialization(new G4GenericPhysicsList(PhysicsList));
+  runManager->SetUserInitialization(pDetectorConstruction);
+  runManager->SetUserInitialization(pPhysicsList);
   runManager->SetUserInitialization(new ActionInitialization()); //Primary generator initialized thread local in here
 
   // Get the pointer to the User Interface manager

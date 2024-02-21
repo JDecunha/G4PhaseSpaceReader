@@ -243,13 +243,10 @@ CMakeFiles/G4PhaseSpaceReader.dir/G4PhaseSpaceReader.cc.o: \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc \
- /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/extern/include/CommandLineParser.hh \
+ /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/include/ParallelWorldConstruction.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/globals.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4UImanager.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4UIcommandStatus.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4VStateDependent.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4ApplicationState.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/icomsdefs.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4VUserParallelWorld.hh \
+ /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/extern/include/CommandLineParser.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4GenericPhysicsList.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4VModularPhysicsList.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4VPhysicsConstructor.hh \
@@ -357,6 +354,7 @@ CMakeFiles/G4PhaseSpaceReader.dir/G4PhaseSpaceReader.cc.o: \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4AnyMethod.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4AnyType.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4UIcommand.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4ApplicationState.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4ThreeVector.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Vector/ThreeVector.h \
  /usr/local/lib/geant4-11.2-install/include/Geant4/CLHEP/Utility/defs.h \
@@ -618,7 +616,7 @@ CMakeFiles/G4PhaseSpaceReader.dir/G4PhaseSpaceReader.cc.o: \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4GenericIon.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4RegisterPhysicsConstructors.icc \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4PhysicsConstructorFactory.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4VModularPhysicsList.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4ParallelWorldPhysics.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4MTRunManager.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4MTBarrier.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4RNGHelper.hh \
@@ -681,4 +679,8 @@ CMakeFiles/G4PhaseSpaceReader.dir/G4PhaseSpaceReader.cc.o: \
  /usr/local/lib/geant4-11.2-install/include/Geant4/trkgdefs.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4TrackingMessenger.hh \
  /usr/local/lib/geant4-11.2-install/include/Geant4/G4UserTrackingAction.hh \
- /usr/local/lib/geant4-11.2-install/include/Geant4/G4RunManagerKernel.hh
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4RunManagerKernel.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4UImanager.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4UIcommandStatus.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/G4VStateDependent.hh \
+ /usr/local/lib/geant4-11.2-install/include/Geant4/icomsdefs.hh

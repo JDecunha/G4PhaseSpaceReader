@@ -1,3 +1,5 @@
+#pragma once
+
 //Standard library
 #include <mutex>
 #include <string>

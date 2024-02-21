@@ -111,10 +111,24 @@ CMakeFiles/src.dir/src/DetectorConstructionMessenger.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/src/DetectorConstructionMessenger.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/DetectorConstructionMessenger.cc -o CMakeFiles/src.dir/src/DetectorConstructionMessenger.cc.s
 
+CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.o: CMakeFiles/src.dir/flags.make
+CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.o: ../src/ParallelWorldConstruction.cc
+CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.o: CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.o -MF CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.o.d -o CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.o -c /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/ParallelWorldConstruction.cc
+
+CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/ParallelWorldConstruction.cc > CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.i
+
+CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/ParallelWorldConstruction.cc -o CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.s
+
 CMakeFiles/src.dir/src/PhaseSpaceAccessTool.cc.o: CMakeFiles/src.dir/flags.make
 CMakeFiles/src.dir/src/PhaseSpaceAccessTool.cc.o: ../src/PhaseSpaceAccessTool.cc
 CMakeFiles/src.dir/src/PhaseSpaceAccessTool.cc.o: CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/src.dir/src/PhaseSpaceAccessTool.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/src.dir/src/PhaseSpaceAccessTool.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/src.dir/src/PhaseSpaceAccessTool.cc.o -MF CMakeFiles/src.dir/src/PhaseSpaceAccessTool.cc.o.d -o CMakeFiles/src.dir/src/PhaseSpaceAccessTool.cc.o -c /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/PhaseSpaceAccessTool.cc
 
 CMakeFiles/src.dir/src/PhaseSpaceAccessTool.cc.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/src.dir/src/PhaseSpaceAccessTool.cc.s: cmake_force
 CMakeFiles/src.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/src.dir/flags.make
 CMakeFiles/src.dir/src/PrimaryGeneratorAction.cc.o: ../src/PrimaryGeneratorAction.cc
 CMakeFiles/src.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/src.dir/src/PrimaryGeneratorAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/src.dir/src/PrimaryGeneratorAction.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/src.dir/src/PrimaryGeneratorAction.cc.o -MF CMakeFiles/src.dir/src/PrimaryGeneratorAction.cc.o.d -o CMakeFiles/src.dir/src/PrimaryGeneratorAction.cc.o -c /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/PrimaryGeneratorAction.cc
 
 CMakeFiles/src.dir/src/PrimaryGeneratorAction.cc.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/src.dir/src/PrimaryGeneratorAction.cc.s: cmake_force
 CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.o: CMakeFiles/src.dir/flags.make
 CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.o: ../src/PrimaryGeneratorMessenger.cc
 CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.o: CMakeFiles/src.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.o -MF CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.o.d -o CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.o -c /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/PrimaryGeneratorMessenger.cc
 
 CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.i: cmake_force
@@ -153,14 +167,30 @@ CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/PrimaryGeneratorMessenger.cc -o CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.s
 
+CMakeFiles/src.dir/src/StraightLineParameterisation.cc.o: CMakeFiles/src.dir/flags.make
+CMakeFiles/src.dir/src/StraightLineParameterisation.cc.o: ../src/StraightLineParameterisation.cc
+CMakeFiles/src.dir/src/StraightLineParameterisation.cc.o: CMakeFiles/src.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/src.dir/src/StraightLineParameterisation.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/src.dir/src/StraightLineParameterisation.cc.o -MF CMakeFiles/src.dir/src/StraightLineParameterisation.cc.o.d -o CMakeFiles/src.dir/src/StraightLineParameterisation.cc.o -c /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/StraightLineParameterisation.cc
+
+CMakeFiles/src.dir/src/StraightLineParameterisation.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/src.dir/src/StraightLineParameterisation.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/StraightLineParameterisation.cc > CMakeFiles/src.dir/src/StraightLineParameterisation.cc.i
+
+CMakeFiles/src.dir/src/StraightLineParameterisation.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/src.dir/src/StraightLineParameterisation.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/src/StraightLineParameterisation.cc -o CMakeFiles/src.dir/src/StraightLineParameterisation.cc.s
+
 # Object files for target src
 src_OBJECTS = \
 "CMakeFiles/src.dir/src/ActionInitialization.cc.o" \
 "CMakeFiles/src.dir/src/DetectorConstruction.cc.o" \
 "CMakeFiles/src.dir/src/DetectorConstructionMessenger.cc.o" \
+"CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.o" \
 "CMakeFiles/src.dir/src/PhaseSpaceAccessTool.cc.o" \
 "CMakeFiles/src.dir/src/PrimaryGeneratorAction.cc.o" \
-"CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.o"
+"CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.o" \
+"CMakeFiles/src.dir/src/StraightLineParameterisation.cc.o"
 
 # External object files for target src
 src_EXTERNAL_OBJECTS =
@@ -168,12 +198,14 @@ src_EXTERNAL_OBJECTS =
 libsrc.a: CMakeFiles/src.dir/src/ActionInitialization.cc.o
 libsrc.a: CMakeFiles/src.dir/src/DetectorConstruction.cc.o
 libsrc.a: CMakeFiles/src.dir/src/DetectorConstructionMessenger.cc.o
+libsrc.a: CMakeFiles/src.dir/src/ParallelWorldConstruction.cc.o
 libsrc.a: CMakeFiles/src.dir/src/PhaseSpaceAccessTool.cc.o
 libsrc.a: CMakeFiles/src.dir/src/PrimaryGeneratorAction.cc.o
 libsrc.a: CMakeFiles/src.dir/src/PrimaryGeneratorMessenger.cc.o
+libsrc.a: CMakeFiles/src.dir/src/StraightLineParameterisation.cc.o
 libsrc.a: CMakeFiles/src.dir/build.make
 libsrc.a: CMakeFiles/src.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libsrc.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Software/G4PhaseSpaceReader/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library libsrc.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/src.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/src.dir/link.txt --verbose=$(VERBOSE)
 

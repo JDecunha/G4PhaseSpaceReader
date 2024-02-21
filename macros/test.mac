@@ -6,4 +6,4 @@
 #Initialize the run manager
 	/run/initialize
 
-/run/beamOn 2000000
+/run/beamOn 1000000
