@@ -1,0 +1,34 @@
+//This project
+#include "G4VectorAccumulable.hh"
+
+template <typename AccumulableType>
+void G4VectorAccumulable<AccumulableType>::SetEntry(const G4int& entryNumber, const AccumulableType& entryValue)
+{
+	_accumulableVector[entryNumber] = entryValue;
+}
+
+template <typename AccumulableType>
+void G4VectorAccumulable<AccumulableType>::AddToEntry(const G4int& entryNumber, const AccumulableType& entryValue)
+{
+	_accumulableVector[entryNumber] = _accumulableVector[entryNumber] + entryValue;
+}
+
+template <typename AccumulableType>
+void G4VectorAccumulable<AccumulableType>::Merge(const G4VAccumulable& other)
+{
+	const G4VectorAccumulable<AccumulableType>& otherVector = static_cast<const G4VectorAccumulable<AccumulableType>&>(other);
+
+	for (int i = 0; i < _accumulableVector.size(); i++) //This assumes vectors being merged have the same size. It shouldn't be possible for them to have different sizes.
+	{
+		_accumulableVector[i] = _accumulableVector[i] + (otherVector.GetVector())[i];
+	}
+}
+
+template <typename AccumulableType>
+void G4VectorAccumulable<AccumulableType>::Reset()
+{
+	for (auto& itemInVector : _accumulableVector) 
+	{
+		itemInVector = AccumulableType(); //Default initialize each item in the vector (i.e. zero it). But don't resize the vector itself.
+	}
+}

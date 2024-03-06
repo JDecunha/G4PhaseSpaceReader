@@ -5,6 +5,8 @@
 #include "EdepScorer.hh"
 //Geant4
 #include "G4AnalysisManager.hh"
+#include "G4AccumulableManager.hh"
+#include "G4VectorAccumulable.hh"
 #include "G4String.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4VTouchable.hh"
@@ -21,6 +23,11 @@ G4bool EdepScorer::ProcessHits(G4Step* aStep, G4TouchableHistory*)
     G4int index = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth);
     auto analysisManager = G4AnalysisManager::Instance();
     analysisManager->FillH1(0 , index, edep);
+
+    G4AccumulableManager* accumulableManager = G4AccumulableManager::Instance();
+    //Add the energy to the accumulable vector
+    //G4VectorAccumulable<G4double>* doseVectAccumulable = 
+    (static_cast<G4VectorAccumulable<G4double>*>(accumulableManager->GetAccumulable("doseAccumulable")))->AddToEntry(index, edep);
   }
 
   return 0;

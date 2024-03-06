@@ -1,10 +1,12 @@
-#include "ParallelWorldConstruction.hh"
 //Geant4
 #include "G4SystemOfUnits.hh"
 //This project
 #include "ParallelWorldConstruction.hh"
 #include "StraightLineParameterisation.hh"
+#include "RunAction.hh"
+//This project: Scorers
 #include "EdepScorer.hh"
+#include "EdepSquaredEventbyEventScorer.hh"
 //Geant4
 #include "G4Box.hh"
 #include "G4LogicalVolume.hh"
@@ -13,6 +15,7 @@
 #include "G4PVParameterised.hh"
 #include "G4SDManager.hh"
 #include "G4MultiFunctionalDetector.hh"
+#include "G4RunManager.hh"
 
 ParallelWorldConstruction::ParallelWorldConstruction(const G4String& parallelWorldName): G4VUserParallelWorld(parallelWorldName) { }
 
@@ -22,27 +25,34 @@ void ParallelWorldConstruction::Construct()
   G4VPhysicalVolume* motherWorldPointer = GetWorld();
   G4LogicalVolume* motherWorldLogical = motherWorldPointer->GetLogicalVolume();
 
-  //Define G4Box that the parameterisation will slice up
-  G4double xhalfsize = 5*cm; 
-  G4double yhalfsize = 5*cm;
-  G4double zhalfsize = 5*cm;
+  //Get the RunAction pointer so that you can ensure the output histograms have a number of bins that corresponds 
+  //to the desired number of voxels
+  RunAction* pRunAction = ((RunAction*)G4RunManager::GetRunManager()->GetUserRunAction());
 
-  G4Box* scoringBox = new G4Box("scoringBox", xhalfsize, yhalfsize, zhalfsize);
+  //Define G4Box that the parameterisation will place many copies of
+  G4double xHalfSize = 5*cm; 
+  G4double yHalfSize = 5*cm;
+  G4double zHalfSize = pRunAction->GetScoringHalfLength();
+
+  G4Box* scoringBox = new G4Box("scoringBox", xHalfSize, yHalfSize, zHalfSize);
   G4LogicalVolume * scoringBox_logical = new G4LogicalVolume(scoringBox, 0, "scoringBox_logical", 0, 0, 0);
 
   //Slice up the scoring box
-  G4double zAxisResolution = 0.5*mm;
-  G4int zincrements = (zhalfsize*2.)/zAxisResolution; //Set zincrements according to desired resolution 
-  G4int xincrements = 1; G4int yincrements = 1;
-  G4int nrhovoxels = xincrements*yincrements*zincrements;
+  G4double zAxisResolution = pRunAction->GetScoringResolution();
+  G4int zIncrements = (zHalfSize*2.)/zAxisResolution; //Set zIncrements according to desired resolution 
+  G4int xIncrements = 1; G4int yIncrements = 1;
+  G4int numVoxels = xIncrements*yIncrements*zIncrements;
 
-  StraightLineParameterisation* lineParam = new StraightLineParameterisation(xhalfsize,yhalfsize,zhalfsize,zincrements);
-  G4PVParameterised* phantomVoxels = new G4PVParameterised("voxelsAlongLine", scoringBox_logical, motherWorldLogical, kZAxis, nrhovoxels, lineParam);
+  StraightLineParameterisation* lineParam = new StraightLineParameterisation(xHalfSize,yHalfSize,zHalfSize,zIncrements);
+  G4PVParameterised* phantomVoxels = new G4PVParameterised("voxelsAlongLine", scoringBox_logical, motherWorldLogical, kZAxis, numVoxels, lineParam);
 
 }
 
 void ParallelWorldConstruction::ConstructSD() 
 {
+  //To pull the number of bins
+  RunAction* pRunAction = ((RunAction*)G4RunManager::GetRunManager()->GetUserRunAction());
+
   //Set up the scoring
   G4SDManager* SDManager = G4SDManager::GetSDMpointer();
   G4MultiFunctionalDetector* MultiFuncDetector = new G4MultiFunctionalDetector("multifuncdetector1");
@@ -51,6 +61,10 @@ void ParallelWorldConstruction::ConstructSD()
   G4VPrimitiveScorer* edepScorer;
   edepScorer = new EdepScorer("edep",0);
   MultiFuncDetector->RegisterPrimitive(edepScorer);
+
+  // G4VPrimitiveScorer* edepSquaredScorer;
+  // edepSquaredScorer = new EdepSquaredEventbyEventScorer("edepSquared",0,pRunAction->GetNumBins());
+  // MultiFuncDetector->RegisterPrimitive(edepSquaredScorer);
 
   //Register sensitive detector with SDManager, and register SD with logical volume
   SDManager->AddNewDetector(MultiFuncDetector);
