@@ -20,6 +20,7 @@
 /vis/scene/create
 /vis/sceneHandler/attach
 /vis/scene/add/volume world
+/vis/scene/add/volume voxelsAlongLine
 
 /vis/scene/add/trajectories rich
 /vis/viewer/flush

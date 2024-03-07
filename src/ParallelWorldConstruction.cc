@@ -17,6 +17,7 @@
 #include "G4SDManager.hh"
 #include "G4MultiFunctionalDetector.hh"
 #include "G4RunManager.hh"
+#include "G4VisAttributes.hh"
 
 ParallelWorldConstruction::ParallelWorldConstruction(const G4String& parallelWorldName): G4VUserParallelWorld(parallelWorldName) { }
 
@@ -37,6 +38,12 @@ void ParallelWorldConstruction::Construct()
 
   G4Box* scoringBox = new G4Box("scoringBox", xHalfSize, yHalfSize, zHalfSize);
   G4LogicalVolume * scoringBox_logical = new G4LogicalVolume(scoringBox, 0, "scoringBox_logical", 0, 0, 0);
+
+  //Visualize scoring box
+  G4VisAttributes* scoring_vis = new G4VisAttributes();
+  scoring_vis->SetColor(1, 0, 0);
+  scoring_vis->SetVisibility(true);
+  scoringBox_logical->SetVisAttributes(scoring_vis);
 
   //Slice up the scoring box
   G4double zAxisResolution = pRunAction->GetScoringResolution();
