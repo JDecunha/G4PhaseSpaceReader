@@ -11,7 +11,7 @@ RunAction::RunAction()
 {
   auto analysisManager = G4AnalysisManager::Instance();
   analysisManager->SetVerboseLevel(1);
-  analysisManager->SetNtupleMerging(false);
+  analysisManager->SetNtupleMerging(true);
 
   //Set scoring geometry parameters (the parallel world pulls these parameters to ensure consistency between histograms and scoring geometry)
   _scoringHalfLength = 5*cm;
