@@ -65,8 +65,14 @@ int main(int argc,char** argv)
   
   // First time using a G4GenericPhysicsList, this method seems great
   auto PhysicsConstructors = new std::vector<G4String>;
+
+  if ((commandLine = parser->GetCommandIfActive("-hadronic_inelastic_physics")))
+  {
+    PhysicsConstructors->push_back(commandLine->GetOption());
+  }
+
   PhysicsConstructors->push_back("G4EmStandardPhysics_option4"); //EM
-  PhysicsConstructors->push_back("G4HadronPhysicsQGSP_BIC_AllHP"); //Inelastic hadron physics (protons, neutrons, pions, kaons)
+  // PhysicsConstructors->push_back("G4HadronPhysicsQGSP_BIC_AllHP"); //Inelastic hadron physics (protons, neutrons, pions, kaons)
   PhysicsConstructors->push_back("G4IonBinaryCascadePhysics"); //Inelastic hadron physics (heavy ions)
   PhysicsConstructors->push_back("G4HadronElasticPhysicsHP"); //Elastic hadron physics 
   PhysicsConstructors->push_back("G4DecayPhysics"); //General radioactive decay
@@ -192,6 +198,8 @@ void Parse(int& argc, char** argv)
   parser->AddCommand("-out",Command::WithOption,"Output filename","");
 
   parser->AddCommand("-phasespace",Command::WithOption,"Path to phase space file","");
+
+  parser->AddCommand("-hadronic_inelastic_physics",Command::WithOption,"Name of hadronic inelastic physics list model","");
 
 #ifdef G4MULTITHREADED
   parser->AddCommand("-mt",Command::WithOption,"Launch in MT mode (events computed in parallel)","");
