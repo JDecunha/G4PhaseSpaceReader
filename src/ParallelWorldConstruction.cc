@@ -32,8 +32,8 @@ void ParallelWorldConstruction::Construct()
   RunAction* pRunAction = ((RunAction*)G4RunManager::GetRunManager()->GetUserRunAction());
 
   //Define G4Box that the parameterisation will place many copies of
-  G4double xHalfSize = 5*cm; 
-  G4double yHalfSize = 5*cm;
+  G4double xHalfSize = 2*cm; 
+  G4double yHalfSize = 2*cm;
   G4double zHalfSize = pRunAction->GetScoringHalfLength();
 
   G4Box* scoringBox = new G4Box("scoringBox", xHalfSize, yHalfSize, zHalfSize);
