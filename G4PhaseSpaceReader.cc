@@ -17,6 +17,7 @@
   #include "G4RunManager.hh"
 #endif
 #include "G4UImanager.hh"
+#include "G4VisExecutive.hh"
 
 //Global command line parser
 CommandLineParser* parser(0);
@@ -89,6 +90,12 @@ int main(int argc,char** argv)
   runManager->SetUserInitialization(pDetectorConstruction);
   runManager->SetUserInitialization(pPhysicsList);
   runManager->SetUserInitialization(new ActionInitialization()); //Primary generator initialized thread local in here
+
+
+
+  G4VisManager* visManager = new G4VisExecutive;
+  visManager->Initialize();
+
 
   // Get the pointer to the User Interface manager
   G4UImanager* UImanager = G4UImanager::GetUIpointer();
