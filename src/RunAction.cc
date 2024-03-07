@@ -18,27 +18,37 @@ RunAction::RunAction()
   _scoringResolution = 0.5*mm;
   _numBins = (_scoringHalfLength*2.)/_scoringResolution;
 
+  //Proton energy spectrum params
+  G4double minEnergy = 0.001; //in MeV (the minimum is specified by NIST-PSTAR)
+  G4double maxEnergy = 300; //300 MeV, upper end of clinical range
+  G4double energySpectrumNbins = 1024; //Currently we are spacing logarithmically
+  // G4double energyResolution = 0.001; //1 keV resolution (rough 300k bins per histogram though) ... this was so many it brought the program to a halt.
+  // G4int energySpectrumNbins = (maxEnergy-minEnergy)/energyResolution;
+
   //Creating histograms
   //Dose scorer
-  analysisManager->CreateH1("Dose" ,"Dose along phantom profile", _numBins+1, 0, _numBins);
-  analysisManager->CreateH1("NumEvents" ,"Number of events along phantom profile", _numBins+1, 0, _numBins);
+  analysisManager->CreateH1("Dose" ,"Dose along phantom profile", _numBins, 0, _numBins);
   //Dose uncertainty scorer
-  analysisManager->CreateH1("DoseSquaredEventByEvent" ,"Dose squared after each event along phantom profile", _numBins+1, 0, _numBins);
-  analysisManager->CreateH1("DoseSquaredTemporaryEventAccumulator" ,"Holds the dose during a single event before being squared and cleared.", _numBins+1, 0, _numBins);
+  analysisManager->CreateH1("DoseSquaredEventByEvent" ,"Dose squared after each event along phantom profile", _numBins, 0, _numBins);
+  analysisManager->CreateH1("DoseSquaredTemporaryEventAccumulator" ,"Holds the dose during a single event before being squared and cleared.", _numBins, 0, _numBins);
   //Proton energy spectrum scorer
-  //TODO: Make my H2 here later
+  analysisManager->CreateH2("ProtonEnergySpectrum" ,"Holds the proton energy spectrum in each bin.", _numBins, 0, _numBins, energySpectrumNbins,  minEnergy, maxEnergy, "none", "none", "none", "none", "linear", "log");
 }
 
 void RunAction::BeginOfRunAction(const G4Run* /*run*/)
 {
   auto analysisManager = G4AnalysisManager::Instance();
-  G4String fileName = "test_output.csv";
+  G4String fileName = "test_output.root";
   analysisManager->OpenFile(fileName);
 }
 
 void RunAction::EndOfRunAction(const G4Run*)
 {
   auto analysisManager = G4AnalysisManager::Instance();
+  
+  // Ideally, you would deactivate the histogram below so it doesn't save. But the command below doesn't work.
+  // analysisManager->SetH1Activation(2, false); //Deactivate the temporary histogram
+
   analysisManager->Write();
   analysisManager->CloseFile();
 }
