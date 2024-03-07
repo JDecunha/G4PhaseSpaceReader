@@ -33,9 +33,10 @@ void StraightLineParameterisation::ComputeTransformation(const G4int copyNo, G4V
 
     G4double xpos = 0.;
     G4double ypos = 0.;
-    G4double zpos = (_halfz/_zinc) + (znum*((2*_halfz)/_zinc)); //Lower surface at 0, increments in +Z direction by voxel length
+    G4double zpos = (_halfz/_zinc) + (znum*((2*_halfz)/_zinc)); 
+    zpos = -zpos; //Lower surface at 0, increments in -Z direction by voxel length
 
-    G4ThreeVector origin(xpos, ypos, zpos); 
+    G4ThreeVector origin(xpos, ypos, zpos+1.7*cm); //1.7 cm shift explained in detector construction 
     physical->SetTranslation(origin);
     physical->SetRotation(0);
 

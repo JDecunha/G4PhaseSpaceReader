@@ -55,7 +55,16 @@ G4VPhysicalVolume* DetectorConstruction::ConstructDetector()
   G4double zhalfsize = 5.0*cm;
   G4Box* LucitePhantom = new G4Box("LucitePhantom", xhalfsize, yhalfsize, zhalfsize); //Initial phase space covers 13 cm x 9 cm (i.e 6.5 x 4.5 half length)
   G4LogicalVolume* LucitePhantom_log = new G4LogicalVolume(LucitePhantom, lucite,"LucitePhantom_log");
-  G4VPhysicalVolume* LucitePhantom_physical = new G4PVPlacement(0, G4ThreeVector(0,0,zhalfsize), LucitePhantom_log, "LucitePhantom", logicWorld, false, 0, false);
+
+  //We want the upper surface of the phantom at 1.7 cm above isocenter. 
+  //Because current experiments are made with snout 1.3 cm above isocenter
+  //and true bottom of snout insert is ~3 cm below that (so 1.7 cm below isocenter)
+  //However Uwe's phase space shoots DOWN from the top, rather than experiment shooting up from the bottom.
+  //So we are modelling Madison/Fada's experiment but inverted. (i.e. protons impinging on top rather than bottom)
+  //So IRL the phantom bottom surface will be 1.7 cm below isocenter, but in this simulation it will be 1.7 cm above isocenter.
+  phantomOffset = G4ThreeVector(0, 0, (-zHalfSize+1.7*cm))
+
+  G4VPhysicalVolume* LucitePhantom_physical = new G4PVPlacement(0, phantomOffset, LucitePhantom_log, "LucitePhantom", logicWorld, false, 0, false);
 
   return physiWorld;
 }
