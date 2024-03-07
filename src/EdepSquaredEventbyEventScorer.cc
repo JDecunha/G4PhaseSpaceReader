@@ -19,8 +19,9 @@ G4bool EdepSquaredEventbyEventScorer::ProcessHits(G4Step* aStep, G4TouchableHist
   if (edep > 0)
   {
     G4int index = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth);
-    //Add the energy deposition to the temporary edep accumulator for this event (will be squared later)
-    // analysisManager->FillH1(3 , i, _doseAccumulatorOfThisEvent[i]);
+    //Add the energy deposition to the temporary edep histogram for this event (will be squared later)
+    auto analysisManager = G4AnalysisManager::Instance();
+    analysisManager->FillH1(2, index, edep);
   }
 
   return 0;
@@ -28,23 +29,27 @@ G4bool EdepSquaredEventbyEventScorer::ProcessHits(G4Step* aStep, G4TouchableHist
 
 void EdepSquaredEventbyEventScorer::EndOfEvent(G4HCofThisEvent*)
 {
+  auto analysisManager = G4AnalysisManager::Instance();
+  //Pull the edep of this event histogram and its number of bins
+  auto edepThisEventHistogram = analysisManager->GetH1(2);
+  G4int nBins = analysisManager->GetH1Nbins(2);
 
-  // for (int i = 0; i <= _doseAccumulatorOfThisEvent.size(); i++)
-  // {
-  //   G4double doseThisEvent = _doseAccumulatorOfThisEvent[i];
+  for (G4int i = 0; i <= nBins; i++)
+  {
+    //null values are for data that we don't need to pull
+    G4double doseThisEvent; unsigned int nullInt; G4double nullDouble; 
     
-  //   if(doseThisEvent != 0)
-  //   {
-  //     //Square the dose for this  event
-  //     doseThisEvent = doseThisEvent*doseThisEvent;
+    edepThisEventHistogram->get_bin_content(i, nullInt, doseThisEvent, nullDouble, nullDouble, nullDouble);
 
-  //     auto analysisManager = G4AnalysisManager::Instance();
-  //     analysisManager->FillH1(2 , i, _doseAccumulatorOfThisEvent[i]);
-  //   }
-  // }
+    if(doseThisEvent != 0)
+    {
+      //Square the dose for this event
+      doseThisEvent = doseThisEvent*doseThisEvent;
+      //Note: why I have to shift the index back to i-1 to fill is unknown. But from manually examining the output, it is working.
+      analysisManager->FillH1(1,(i-1),doseThisEvent); //Fill the output histogram with the squared dose of  this event
+    }
+  }
 
-  //Clear the dose counter for this event
-  //TODO: I think we can replace this with G4AnalysisManager::ScaleH1 and set the scale to zero to reset it.
-  // std::fill(_doseAccumulatorOfThisEvent.begin(), _doseAccumulatorOfThisEvent.end(), 0.0);
-
+  //Reset histogram storing energy for this event
+  analysisManager->ScaleH1(2,0.0);
 }

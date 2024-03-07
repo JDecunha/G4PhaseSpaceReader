@@ -62,9 +62,9 @@ void ParallelWorldConstruction::ConstructSD()
   edepScorer = new EdepScorer("edep",0);
   MultiFuncDetector->RegisterPrimitive(edepScorer);
 
-  // G4VPrimitiveScorer* edepSquaredScorer;
-  // edepSquaredScorer = new EdepSquaredEventbyEventScorer("edepSquared",0,pRunAction->GetNumBins());
-  // MultiFuncDetector->RegisterPrimitive(edepSquaredScorer);
+  G4VPrimitiveScorer* edepSquaredScorer;
+  edepSquaredScorer = new EdepSquaredEventbyEventScorer("edepSquared",0);
+  MultiFuncDetector->RegisterPrimitive(edepSquaredScorer);
 
   //Register sensitive detector with SDManager, and register SD with logical volume
   SDManager->AddNewDetector(MultiFuncDetector);
