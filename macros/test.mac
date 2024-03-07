@@ -7,4 +7,48 @@
 #Initialize the run manager
 	/run/initialize
 
-/run/beamOn 10000
+#Visualization
+#Visualisation starts
+/vis/open HepRepFile
+
+
+#Auxillaryedge shows the edge as the simulator sees it, which is not ideal (composed of triangles)
+
+/vis/viewer/set/auxiliaryEdge false
+/vis/viewer/set/autoRefresh false
+/vis/drawVolume
+/vis/scene/create
+/vis/sceneHandler/attach
+/vis/scene/add/volume world
+
+/vis/scene/add/trajectories rich
+/vis/viewer/flush
+
+#Particle Filter
+ #Implemented this so that we don't see neutrinos
+ /vis/filtering/trajectories/create/particleFilter 
+ #/vis/filtering/trajectories/particleFilter-0/add e-
+ /vis/filtering/trajectories/particleFilter-0/add proton
+ /vis/filtering/trajectories/particleFilter-0/add neutron
+ #/vis/filtering/trajectories/particleFilter-0/invert true
+
+#Initial Volume Filter
+ #/vis/filtering/trajectories/create/originVolumeFilter
+ #/vis/filtering/trajectories/originVolumeFilter-0/add CapsuleCylinder_phys
+ #/vis/filtering/trajectories/originVolumeFilter-0/add CapsuleCylinder_physend1
+ #/vis/filtering/trajectories/originVolumeFilter-0/add CapsuleCylinder_physend2
+
+#Draw by Charge
+ /vis/modeling/trajectories/create/drawByCharge
+ /vis/modeling/trajectories/drawByCharge-0/set 1 blue
+ /vis/modeling/trajectories/drawByCharge-0/set -1 red
+ /vis/modeling/trajectories/drawByCharge-0/setRGBA 0 0 1 0 0
+ /vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 4
+
+
+/vis/scene/endOfEventAction accumulate
+/vis/viewer/set/autoRefresh true
+/vis/verbose warnings
+# Visualisation ends
+
+/run/beamOn 100

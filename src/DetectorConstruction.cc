@@ -62,7 +62,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructDetector()
   //However Uwe's phase space shoots DOWN from the top, rather than experiment shooting up from the bottom.
   //So we are modelling Madison/Fada's experiment but inverted. (i.e. protons impinging on top rather than bottom)
   //So IRL the phantom bottom surface will be 1.7 cm below isocenter, but in this simulation it will be 1.7 cm above isocenter.
-  phantomOffset = G4ThreeVector(0, 0, (-zHalfSize+1.7*cm))
+  G4ThreeVector phantomOffset = G4ThreeVector(0, 0, (-zhalfsize+1.7*cm));
 
   G4VPhysicalVolume* LucitePhantom_physical = new G4PVPlacement(0, phantomOffset, LucitePhantom_log, "LucitePhantom", logicWorld, false, 0, false);
 
