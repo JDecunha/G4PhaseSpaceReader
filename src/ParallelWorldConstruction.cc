@@ -8,6 +8,7 @@
 #include "EdepScorer.hh"
 #include "EdepSquaredEventbyEventScorer.hh"
 #include "ProtonSpectrumScorer.hh"
+#include "ProtonSlowingSpectrumScorer.hh"
 //Geant4
 #include "G4Box.hh"
 #include "G4LogicalVolume.hh"
@@ -77,6 +78,10 @@ void ParallelWorldConstruction::ConstructSD()
   G4VPrimitiveScorer* protonEnergySpectrumScorer;
   protonEnergySpectrumScorer = new ProtonSpectrumScorer("protonSpectrum",0);
   MultiFuncDetector->RegisterPrimitive(protonEnergySpectrumScorer);
+
+  G4VPrimitiveScorer* protonSlowingSpectrumScorer;
+  protonSlowingSpectrumScorer = new ProtonSlowingSpectrumScorer("protonSlowingSpectrum",0);
+  MultiFuncDetector->RegisterPrimitive(protonSlowingSpectrumScorer);
 
   //Register sensitive detector with SDManager, and register SD with logical volume
   SDManager->AddNewDetector(MultiFuncDetector);
