@@ -64,13 +64,22 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
     //Getting MCNP Particle definitions from: https://mcnp.lanl.gov/pdf_files/TechReport_2017_LANL_LA-UR-17-29981_WernerArmstrongEtAl.pdf (PDF pg. 46)
     //1,2,3,9 are neutron, photon, electron, and proton respectively
     if (ptclType == 1) { particle = particleTable->FindParticle("neutron"); } 
-    else if (ptclType == 2) { particle = particleTable->FindParticle("photon"); }
+    else if (ptclType == 2) { particle = particleTable->FindParticle("gamma"); }
     else if (ptclType == 3) { particle = particleTable->FindParticle("electron"); }
     else if (ptclType == 9) { particle = particleTable->FindParticle("proton"); }
-    else {throw std::runtime_error("Phase space reader currently only reads electrons, neutrons, protons, and photons. ?! What is THIS particle !! ");}
+    else if (ptclType == 31) { particle = particleTable->FindParticle("deuteron"); }
+    else if (ptclType == 34) { particle = particleTable->FindParticle("alpha"); }
+    else { std::cout << "Particle type: : " << ptclType << std::endl; throw std::runtime_error("Phase space reader currently only reads electrons, neutrons, protons, and photons. ?! What is THIS particle !! ");}
 
     gun->SetParticleDefinition(particle);
 
     //Shoot!
-    gun->GeneratePrimaryVertex(event);
+    if (particle)
+    {
+        gun->GeneratePrimaryVertex(event);
+    }
+    else
+    {
+        std::cout << "Skipping unknown particle type: " << ptclType << std::endl;
+    }
 }

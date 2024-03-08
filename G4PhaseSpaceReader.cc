@@ -97,10 +97,9 @@ int main(int argc,char** argv)
   runManager->SetUserInitialization(pPhysicsList);
   runManager->SetUserInitialization(new ActionInitialization()); //Primary generator initialized thread local in here
 
-
-
-  G4VisManager* visManager = new G4VisExecutive;
-  visManager->Initialize();
+  //If you want visualization
+  // G4VisManager* visManager = new G4VisExecutive;
+  // visManager->Initialize();
 
 
   // Get the pointer to the User Interface manager
