@@ -33,6 +33,7 @@ RunAction::RunAction()
   analysisManager->CreateH1("DoseSquaredTemporaryEventAccumulator" ,"Holds the dose during a single event before being squared and cleared.", _numBins, 0, _numBins);
   //Proton energy spectrum scorer
   analysisManager->CreateH2("ProtonEnergySpectrum" ,"Holds the proton energy spectrum in each bin.", _numBins, 0, _numBins, energySpectrumNbins,  minEnergy, maxEnergy, "none", "none", "none", "none", "linear", "log");
+  analysisManager->CreateH2("ProtonSlowingEnergySpectrum" ,"Holds the proton energy spectrum (for all proton steps) in each bin.", _numBins, 0, _numBins, energySpectrumNbins,  minEnergy, maxEnergy, "none", "none", "none", "none", "linear", "log");
 }
 
 void RunAction::BeginOfRunAction(const G4Run* /*run*/)
