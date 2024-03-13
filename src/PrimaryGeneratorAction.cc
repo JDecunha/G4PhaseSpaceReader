@@ -69,6 +69,7 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
     else if (ptclType == 9) { particle = particleTable->FindParticle("proton"); }
     else if (ptclType == 31) { particle = particleTable->FindParticle("deuteron"); }
     else if (ptclType == 34) { particle = particleTable->FindParticle("alpha"); }
+    else if (ptclType == 35) { particle = particleTable->FindParticle("pi-"); }
     else { std::cout << "Particle type: : " << ptclType << std::endl; throw std::runtime_error("Phase space reader currently only reads electrons, neutrons, protons, and photons. ?! What is THIS particle !! ");}
 
     gun->SetParticleDefinition(particle);

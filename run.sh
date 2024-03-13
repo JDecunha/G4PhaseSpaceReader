@@ -1,1 +1,1 @@
-./G4PhaseSpaceReader -out ../output/test -mac ../macros/test.mac -seed 1 -mt 1 -phasespace /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Data/G3_beamline.txt -hadronic_inelastic_physics G4HadronPhysicsQGSP_BIC_HP
+./G4PhaseSpaceReader -out ../output/test -mac ../macros/test.mac -seed 1 -mt NMAX -phasespace /home/joseph/Dropbox/Documents/Work/Projects/New_Jig/Data/Mar2024PhaseSpace/G3_beamline_10mil.txt -hadronic_inelastic_physics G4HadronPhysicsQGSP_BIC_HP
