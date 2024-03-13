@@ -5,12 +5,12 @@
 /analysis/verbose 1
 
 #Set output filename
-/analysis/openFile test.root
+/analysis/openFile RegularHP_100mil.root
 
 #Initialize the run manager
 /run/initialize
 
-#Vis goes here
+#Vis goes here (if you wanted it)
 
-/run/beamOn 10000
+/run/beamOn 100000000
 
