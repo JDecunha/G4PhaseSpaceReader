@@ -1,0 +1,15 @@
+﻿#!/bin/bash
+
+#BSUB -W 72:00
+#BSUB -o /rsrch3/home/radphys_rsch/jdecunha/seadragon2/G4PhaseSpaceReader
+#BSUB -cwd /rsrch3/home/radphys_rsch/jdecunha/seadragon2/G4PhaseSpaceReader
+#BSUB -q medium
+#BSUB -M 48
+#BSUB -R rusage[mem=48]
+#BSUB -n 40
+#BSUB -u jdecunha@mdanderson.org
+#BSUB -J G4PhaseSpaceTest
+
+source /rsrch3/home/radphys_rsch/jdecunha/seadragon2/configure_sdr2.sh
+
+../build/G4PhaseSpaceReader -out ../output/test -mac ../macros/test.mac -seed 4094 -mt NMAX -phasespace /rsrch3/home/radphys_rsch/jdecunha/seadragon2/PhaseSpaces/G3_beamline_10mil.txt -hadronic_inelastic_physics G4HadronPhysicsQGSP_BIC_HP
