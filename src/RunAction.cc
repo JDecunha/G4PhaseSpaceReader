@@ -15,7 +15,7 @@ RunAction::RunAction()
 
   //Set scoring geometry parameters (the parallel world pulls these parameters to ensure consistency between histograms and scoring geometry)
   _scoringHalfLength = 5*cm;
-  _scoringResolution = 0.5*mm;
+  _scoringResolution = 0.01*mm;
   _numBins = (_scoringHalfLength*2.)/_scoringResolution;
 
   //Proton energy spectrum params
