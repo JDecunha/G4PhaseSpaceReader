@@ -5,7 +5,7 @@
 /analysis/verbose 1
 
 #Set output filename
-/analysis/openFile RegularHP_100mil.root
+/analysis/openFile ../output/RegularHP_100mil.root
 
 #Initialize the run manager
 /run/initialize
