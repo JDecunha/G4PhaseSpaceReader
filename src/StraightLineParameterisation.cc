@@ -21,7 +21,7 @@ void StraightLineParameterisation::ComputeDimensions(G4Box& box, const G4int cop
 {
     box.SetXHalfLength(_halfx);
     box.SetYHalfLength(_halfy);
-    box.SetZHalfLength((_halfz/_zinc)*0.98); //Introduce the "fudge factor" to give a little spacing between boxes
+    box.SetZHalfLength((_halfz/_zinc)*0.99); //Introduce the "fudge factor" to give a little spacing between boxes
 }
 
 void StraightLineParameterisation::ComputeTransformation(const G4int copyNo, G4VPhysicalVolume* physical) const
@@ -39,5 +39,11 @@ void StraightLineParameterisation::ComputeTransformation(const G4int copyNo, G4V
     G4ThreeVector origin(xpos, ypos, zpos+1.7*cm); //1.7 cm shift explained in detector construction 
     physical->SetTranslation(origin);
     physical->SetRotation(0);
+
+    //Some print statements for troubleshooting
+    // G4double halfLengthInZ = (_halfz/_zinc)*0.99;
+    // G4double bottomEdgeLocation = zpos-halfLengthInZ+1.7*cm;
+    // G4double topEdgeLocation = zpos+halfLengthInZ+1.7*cm;
+    // std::cout << "Copy number: " << copyNo << " Z_Pos: " << zpos << " Bottom edge: " << bottomEdgeLocation << " Top edge: " << topEdgeLocation << std::endl;
 
 }
