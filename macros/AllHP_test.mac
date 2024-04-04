@@ -5,12 +5,13 @@
 /analysis/verbose 1
 
 #Set output filename
-/analysis/openFile ../output/AllHP_test.root
+/analysis/openFile ../output/AllHP_test.csv
 
 #Initialize the run manager
 /run/initialize
+#/run/setCut 0.01 mm
 
 #Vis goes here (if you wanted it)
 
-/run/beamOn 10000000
+/run/beamOn 1000
 

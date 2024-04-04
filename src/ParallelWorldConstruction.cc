@@ -59,8 +59,6 @@ void ParallelWorldConstruction::Construct()
 
 void ParallelWorldConstruction::ConstructSD() 
 {
-  //To pull the number of bins
-  RunAction* pRunAction = ((RunAction*)G4RunManager::GetRunManager()->GetUserRunAction());
 
   //Set up the scoring
   G4SDManager* SDManager = G4SDManager::GetSDMpointer();

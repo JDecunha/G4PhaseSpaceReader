@@ -1,6 +1,11 @@
 //MicroTrackGenerator
 #include "DetectorConstruction.hh"
 #include "DetectorConstructionMessenger.hh"
+//This project: Scorers
+#include "EdepScorer.hh"
+#include "EdepSquaredEventbyEventScorer.hh"
+#include "ProtonSpectrumScorer.hh"
+#include "ProtonSlowingSpectrumScorer.hh"
 //Geant4
 #include "G4Material.hh"
 #include "G4NistManager.hh"
@@ -10,6 +15,9 @@
 #include "G4VPhysicalVolume.hh"
 #include "G4PVPlacement.hh"
 #include "G4PVParameterised.hh"
+#include "G4PVReplica.hh"
+#include "G4SDManager.hh"
+#include "G4MultiFunctionalDetector.hh"
 
 DetectorConstruction::DetectorConstruction():G4VUserDetectorConstruction()
 {
@@ -49,12 +57,25 @@ G4VPhysicalVolume* DetectorConstruction::ConstructDetector()
                                   false,      //no boolean operation
                                   0);      //copy number
 
-  //Create the phantom
-  G4double xhalfsize = 8.0*cm; //16 cm x 12 cm x 10 cm thick
-  G4double yhalfsize = 6.0*cm;
-  G4double zhalfsize = 5.0*cm;
-  G4Box* LucitePhantom = new G4Box("LucitePhantom", xhalfsize, yhalfsize, zhalfsize); //Initial phase space covers 13 cm x 9 cm (i.e 6.5 x 4.5 half length)
+  //Alright, let's make our scoring volume in the physical world
+  G4Box* LucitePhantom = new G4Box("LucitePhantom", 1*cm, 1*cm, 5*cm);
   G4LogicalVolume* LucitePhantom_log = new G4LogicalVolume(LucitePhantom, lucite,"LucitePhantom_log");
+  G4ThreeVector phantomOffset = G4ThreeVector(0, 0, ((-5*cm)+1.7*cm));
+  G4VPhysicalVolume* LucitePhantom_physical = new G4PVPlacement(0, phantomOffset, LucitePhantom_log, "LucitePhantom", logicWorld, false, 0, false);
+
+  //And make our replica volume
+  double zAxisThickness = 0.1*cm;
+  G4Box* LucitePhantomZCuts = new G4Box("LucitePhantomZCuts", 1*cm, 1*cm, (zAxisThickness/2.));
+  G4LogicalVolume* LucitePhantomZCuts_log = new G4LogicalVolume(LucitePhantomZCuts, lucite,"LucitePhantomZCuts_log");
+
+
+  //Slice it up
+  G4VPhysicalVolume* LucitePhantomZCuts_physical = new G4PVReplica("LucitePhantomZCutsPhysical",
+                                                              LucitePhantomZCuts_log,
+                                                              LucitePhantom_physical,
+                                                              kZAxis,
+                                                              100,
+                                                              zAxisThickness);
 
   //We want the upper surface of the phantom at 1.7 cm above isocenter. 
   //Because current experiments are made with snout 1.3 cm above isocenter
@@ -62,9 +83,36 @@ G4VPhysicalVolume* DetectorConstruction::ConstructDetector()
   //However Uwe's phase space shoots DOWN from the top, rather than experiment shooting up from the bottom.
   //So we are modelling Madison/Fada's experiment but inverted. (i.e. protons impinging on top rather than bottom)
   //So IRL the phantom bottom surface will be 1.7 cm below isocenter, but in this simulation it will be 1.7 cm above isocenter.
-  G4ThreeVector phantomOffset = G4ThreeVector(0, 0, (-zhalfsize+1.7*cm));
-
-  G4VPhysicalVolume* LucitePhantom_physical = new G4PVPlacement(0, phantomOffset, LucitePhantom_log, "LucitePhantom", logicWorld, false, 0, false);
+  
 
   return physiWorld;
+}
+
+void DetectorConstruction::ConstructSDandField() 
+{
+
+  //Set up the scoring
+  G4SDManager* SDManager = G4SDManager::GetSDMpointer();
+  G4MultiFunctionalDetector* MultiFuncDetector = new G4MultiFunctionalDetector("multifuncdetector1");
+
+  //Make the scorers
+  G4VPrimitiveScorer* edepScorer;
+  edepScorer = new EdepScorer("edep",0);
+  MultiFuncDetector->RegisterPrimitive(edepScorer);
+
+  G4VPrimitiveScorer* edepSquaredScorer;
+  edepSquaredScorer = new EdepSquaredEventbyEventScorer("edepSquared",0);
+  MultiFuncDetector->RegisterPrimitive(edepSquaredScorer);
+
+  G4VPrimitiveScorer* protonEnergySpectrumScorer;
+  protonEnergySpectrumScorer = new ProtonSpectrumScorer("protonSpectrum",0);
+  MultiFuncDetector->RegisterPrimitive(protonEnergySpectrumScorer);
+
+  G4VPrimitiveScorer* protonSlowingSpectrumScorer;
+  protonSlowingSpectrumScorer = new ProtonSlowingSpectrumScorer("protonSlowingSpectrum",0);
+  MultiFuncDetector->RegisterPrimitive(protonSlowingSpectrumScorer);
+
+  //Register sensitive detector with SDManager, and register SD with logical volume
+  SDManager->AddNewDetector(MultiFuncDetector);
+  SetSensitiveDetector("LucitePhantomZCuts_log",MultiFuncDetector);
 }

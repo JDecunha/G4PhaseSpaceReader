@@ -10,6 +10,7 @@ class DetectorConstruction : public G4VUserDetectorConstruction
   public:
 	DetectorConstruction();
 	virtual ~DetectorConstruction() override;
+	virtual void ConstructSDandField() override;
 
 	virtual G4VPhysicalVolume* Construct();
                          

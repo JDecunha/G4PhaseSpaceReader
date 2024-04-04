@@ -89,8 +89,8 @@ int main(int argc,char** argv)
   // Set up the geometry (physical and parallel world)
   auto pDetectorConstruction = new DetectorConstruction();
   G4String scoringWorldName = "ScoringWorld";
-  pDetectorConstruction->RegisterParallelWorld(new ParallelWorldConstruction(scoringWorldName)); //Connect the detector construction to the parallel world. (This is done if you want to use layered mass geometry)
-  pPhysicsList->RegisterPhysics(new G4ParallelWorldPhysics(scoringWorldName));
+  // pDetectorConstruction->RegisterParallelWorld(new ParallelWorldConstruction(scoringWorldName)); //Connect the detector construction to the parallel world. (This is done if you want to use layered mass geometry)
+  // pPhysicsList->RegisterPhysics(new G4ParallelWorldPhysics(scoringWorldName));
 
   // Set mandatory user initialization classes
   runManager->SetUserInitialization(pDetectorConstruction);
