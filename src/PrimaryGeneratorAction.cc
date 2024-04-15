@@ -77,6 +77,7 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
     //Shoot!
     if (particle)
     {
+        std::cout << "Particle: " << gun->GetParticleDefinition()->GetParticleName() << " Energy: " << gun->GetParticleEnergy() << std::endl;
         gun->GeneratePrimaryVertex(event);
     }
     else

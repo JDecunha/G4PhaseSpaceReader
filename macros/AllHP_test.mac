@@ -5,7 +5,7 @@
 /analysis/verbose 1
 
 #Set output filename
-/analysis/openFile ../output/AllHP_test.csv
+/analysis/openFile ../output/AllHP_test.root
 
 #Initialize the run manager
 /run/initialize
