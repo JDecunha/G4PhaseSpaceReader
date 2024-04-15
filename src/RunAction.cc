@@ -9,8 +9,17 @@
 
 RunAction::RunAction()
 {
+  auto THRID = G4Threading::G4GetThreadId();
+  std::cout <<THRID << std::endl;
+
+
+  // std::cout << "here" << std::endl;
+
   auto analysisManager = G4AnalysisManager::Instance();
   analysisManager->SetVerboseLevel(1);
+
+  // std::cout << "here2" << std::endl;
+
   analysisManager->SetNtupleMerging(true);
 
   //Set scoring geometry parameters (the parallel world pulls these parameters to ensure consistency between histograms and scoring geometry)
@@ -21,9 +30,11 @@ RunAction::RunAction()
   //Proton energy spectrum params
   G4double minEnergy = 0.001; //in MeV (the minimum is specified by NIST-PSTAR)
   G4double maxEnergy = 300; //300 MeV, upper end of clinical range
-  G4double energySpectrumNbins = 1024; //Currently we are spacing logarithmically
+  G4double energySpectrumNbins = 256; //Currently we are spacing logarithmically
   // G4double energyResolution = 0.001; //1 keV resolution (rough 300k bins per histogram though) ... this was so many it brought the program to a halt.
   // G4int energySpectrumNbins = (maxEnergy-minEnergy)/energyResolution;
+
+  // std::cout << "here3" << std::endl;
 
   //Creating histograms
   //Dose scorer
@@ -31,9 +42,16 @@ RunAction::RunAction()
   //Dose uncertainty scorer
   analysisManager->CreateH1("DoseSquaredEventByEvent" ,"Dose squared after each event along phantom profile", _numBins, 0, _numBins);
   analysisManager->CreateH1("DoseSquaredTemporaryEventAccumulator" ,"Holds the dose during a single event before being squared and cleared.", _numBins, 0, _numBins);
+ 
+  // std::cout << "here4" << std::endl;
+
   //Proton energy spectrum scorer
   analysisManager->CreateH2("ProtonEnergySpectrum" ,"Holds the proton energy spectrum in each bin.", _numBins, 0, _numBins, energySpectrumNbins,  minEnergy, maxEnergy, "none", "none", "none", "none", "linear", "log");
   analysisManager->CreateH2("ProtonSlowingEnergySpectrum" ,"Holds the proton energy spectrum (for all proton steps) in each bin.", _numBins, 0, _numBins, energySpectrumNbins,  minEnergy, maxEnergy, "none", "none", "none", "none", "linear", "log");
+
+  // std::cout << "here5" << std::endl;
+
+  
 }
 
 void RunAction::BeginOfRunAction(const G4Run* /*run*/)

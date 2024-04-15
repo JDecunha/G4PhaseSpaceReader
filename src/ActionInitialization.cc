@@ -20,7 +20,10 @@ void ActionInitialization::BuildForMaster() const
 
 void ActionInitialization::Build() const
 {
+  // std::cout << "Before primary gen" << std::endl;
   SetUserAction(new PrimaryGeneratorAction());
+  // std::cout << "Before per thread run action" << std::endl;
   SetUserAction(new RunAction());
+  // std::cout << "After per thread run action" << std::endl;
 }  
 

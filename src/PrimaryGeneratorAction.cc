@@ -25,7 +25,6 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction()
 
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
 {
-
     //Take all the information we've extracted and actually send it to G4 Particle Gun
     auto particleTable = G4ParticleTable::GetParticleTable();
     G4ParticleDefinition* particle = nullptr;
@@ -38,6 +37,7 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
     //Shoot!
     if (particle)
     {
+        // std::cout << "Particle: " << gun->GetParticleDefinition()->GetParticleName() << " Energy: " << gun->GetParticleEnergy() << std::endl;
         gun->GeneratePrimaryVertex(event);
     }
 

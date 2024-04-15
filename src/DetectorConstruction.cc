@@ -65,6 +65,6 @@ G4VPhysicalVolume* DetectorConstruction::ConstructDetector()
   G4ThreeVector phantomOffset = G4ThreeVector(0, 0, (-zhalfsize+1.7*cm));
 
   G4VPhysicalVolume* LucitePhantom_physical = new G4PVPlacement(0, phantomOffset, LucitePhantom_log, "LucitePhantom", logicWorld, false, 0, false);
-
+  
   return physiWorld;
 }
