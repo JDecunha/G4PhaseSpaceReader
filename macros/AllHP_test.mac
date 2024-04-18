@@ -5,12 +5,12 @@
 /analysis/verbose 1
 
 #Set output filename
-/analysis/openFile ../output/AllHP_test.root
+/analysis/openFile ../output/AllHP_test_100k_April15_10cores_16energyResolution.root
 
 #Initialize the run manager
 /run/initialize
 
 #Vis goes here (if you wanted it)
 
-/run/beamOn 1000
+/run/beamOn 100000
 

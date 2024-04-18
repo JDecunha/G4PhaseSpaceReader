@@ -21,7 +21,7 @@ RunAction::RunAction()
   //Proton energy spectrum params
   G4double minEnergy = 0.001; //in MeV (the minimum is specified by NIST-PSTAR)
   G4double maxEnergy = 300; //300 MeV, upper end of clinical range
-  G4double energySpectrumNbins = 256; //Currently we are spacing logarithmically
+  G4double energySpectrumNbins = 16; //Currently we are spacing logarithmically
   // G4double energyResolution = 0.001; //1 keV resolution (rough 300k bins per histogram though) ... this was so many it brought the program to a halt.
   // G4int energySpectrumNbins = (maxEnergy-minEnergy)/energyResolution;
 
@@ -32,6 +32,7 @@ RunAction::RunAction()
   analysisManager->CreateH1("DoseSquaredEventByEvent" ,"Dose squared after each event along phantom profile", _numBins, 0, _numBins);
   analysisManager->CreateH1("DoseSquaredTemporaryEventAccumulator" ,"Holds the dose during a single event before being squared and cleared.", _numBins, 0, _numBins);
   //Proton energy spectrum scorer
+  // (const G4String &name, const G4String &title, G4int nxbins, G4double xmin, G4double xmax, G4int nybins, G4double ymin, G4double ymax, const G4String &xunitName="none", const G4String &yunitName="none", const G4String &xfcnName="none", const G4String &yfcnName="none")=0
   analysisManager->CreateH2("ProtonEnergySpectrum" ,"Holds the proton energy spectrum in each bin.", _numBins, 0, _numBins, energySpectrumNbins,  minEnergy, maxEnergy, "none", "none", "none", "none", "linear", "log");
   analysisManager->CreateH2("ProtonSlowingEnergySpectrum" ,"Holds the proton energy spectrum (for all proton steps) in each bin.", _numBins, 0, _numBins, energySpectrumNbins,  minEnergy, maxEnergy, "none", "none", "none", "none", "linear", "log");
 }
