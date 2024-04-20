@@ -5,10 +5,11 @@
 /analysis/verbose 1
 
 #Set output filename
-/analysis/openFile ../output/AllHP_test_100k_April15_10cores_16energyResolution.root
+/analysis/openFile ../output/AllHP_test_100k_April20_10cores_16energyResolution.root
 
 #Initialize the run manager
 /run/initialize
+/run/printProgress 1000
 
 #Vis goes here (if you wanted it)
 

@@ -18,7 +18,7 @@ G4bool EdepScorer::ProcessHits(G4Step* aStep, G4TouchableHistory*)
 
   if (edep > 0)
   {
-    G4int index = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetCopyNumber(indexDepth);
+    G4int index = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth);
     auto analysisManager = G4AnalysisManager::Instance();
     analysisManager->FillH1(0 , index, edep);
   }
