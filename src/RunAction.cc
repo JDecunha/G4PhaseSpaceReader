@@ -21,7 +21,7 @@ RunAction::RunAction()
   //Proton energy spectrum params
   G4double minEnergy = 0.001; //in MeV (the minimum is specified by NIST-PSTAR)
   G4double maxEnergy = 300; //300 MeV, upper end of clinical range
-  G4double energySpectrumNbins = 16; //Currently we are spacing logarithmically
+  G4double energySpectrumNbins = 256; //Currently we are spacing logarithmically
   // G4double energyResolution = 0.001; //1 keV resolution (rough 300k bins per histogram though) ... this was so many it brought the program to a halt.
   // G4int energySpectrumNbins = (maxEnergy-minEnergy)/energyResolution;
 
@@ -37,11 +37,9 @@ RunAction::RunAction()
   analysisManager->CreateH2("ProtonSlowingEnergySpectrum" ,"Holds the proton energy spectrum (for all proton steps) in each bin.", _numBins, 0, _numBins, energySpectrumNbins,  minEnergy, maxEnergy, "none", "none", "none", "none", "linear", "log");
 }
 
-void RunAction::BeginOfRunAction(const G4Run* /*run*/)
+void RunAction::BeginOfRunAction(const G4Run*)
 {
-  // auto analysisManager = G4AnalysisManager::Instance();
-  // G4String fileName = "test_output.root";
-  // analysisManager->OpenFile(fileName);
+
 }
 
 void RunAction::EndOfRunAction(const G4Run*)
