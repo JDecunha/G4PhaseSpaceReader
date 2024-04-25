@@ -5,7 +5,7 @@
 /analysis/verbose 1
 
 #Set output filename
-/analysis/openFile ../output/RegularHP_16cores_April20_10mil.root
+/analysis/openFile ../output/RegularHP_16cores_April25_10mil_highres.root
 
 #Initialize the run manager
 /run/initialize
@@ -13,5 +13,5 @@
 
 #Vis goes here (if you wanted it)
 
-/run/beamOn 10000000
+/run/beamOn 100
 

@@ -25,6 +25,9 @@ RunAction::RunAction()
   // G4double energyResolution = 0.001; //1 keV resolution (rough 300k bins per histogram though) ... this was so many it brought the program to a halt.
   // G4int energySpectrumNbins = (maxEnergy-minEnergy)/energyResolution;
 
+  G4double minLET = 0.3;
+  G4double maxLET = 100;
+
   //Creating histograms
   //Dose scorer
   analysisManager->CreateH1("Dose" ,"Dose along phantom profile", _numBins, 0, _numBins);
@@ -34,7 +37,9 @@ RunAction::RunAction()
   //Proton energy spectrum scorer
   // (const G4String &name, const G4String &title, G4int nxbins, G4double xmin, G4double xmax, G4int nybins, G4double ymin, G4double ymax, const G4String &xunitName="none", const G4String &yunitName="none", const G4String &xfcnName="none", const G4String &yfcnName="none")=0
   analysisManager->CreateH2("ProtonEnergySpectrum" ,"Holds the proton energy spectrum in each bin.", _numBins, 0, _numBins, energySpectrumNbins,  minEnergy, maxEnergy, "none", "none", "none", "none", "linear", "log");
-  analysisManager->CreateH2("ProtonSlowingEnergySpectrum" ,"Holds the proton energy spectrum (for all proton steps) in each bin.", _numBins, 0, _numBins, energySpectrumNbins,  minEnergy, maxEnergy, "none", "none", "none", "none", "linear", "log");
+  // analysisManager->CreateH2("ProtonSlowingEnergySpectrum" ,"Holds the proton energy spectrum (for all proton steps) in each bin.", _numBins, 0, _numBins, energySpectrumNbins,  minEnergy, maxEnergy, "none", "none", "none", "none", "linear", "log");
+  analysisManager->CreateH2("LETSpectrum" ,"LET spectrum in each bin.", _numBins, 0, _numBins, energySpectrumNbins,  minLET, maxLET, "none", "none", "none", "none", "linear", "log");
+
 }
 
 void RunAction::BeginOfRunAction(const G4Run*)
