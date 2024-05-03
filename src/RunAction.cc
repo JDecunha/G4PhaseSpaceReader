@@ -21,7 +21,7 @@ RunAction::RunAction()
   //Proton energy spectrum params
   G4double minEnergy = 0.001; //in MeV (the minimum is specified by NIST-PSTAR)
   G4double maxEnergy = 300; //300 MeV, upper end of clinical range
-  G4double energySpectrumNbins = 256; //Currently we are spacing logarithmically
+  G4double energySpectrumNbins = 512; //Currently we are spacing logarithmically
   // G4double energyResolution = 0.001; //1 keV resolution (rough 300k bins per histogram though) ... this was so many it brought the program to a halt.
   // G4int energySpectrumNbins = (maxEnergy-minEnergy)/energyResolution;
 
