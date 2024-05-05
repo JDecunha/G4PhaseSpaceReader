@@ -18,6 +18,7 @@
 #endif
 #include "G4UImanager.hh"
 #include "G4VisExecutive.hh"
+#include "G4UIExecutive.hh"
 
 //Global command line parser
 CommandLineParser* parser(0);
@@ -98,8 +99,8 @@ int main(int argc,char** argv)
   runManager->SetUserInitialization(new ActionInitialization()); //Primary generator initialized thread local in here
 
   //If you want visualization
-  // G4VisManager* visManager = new G4VisExecutive;
-  // visManager->Initialize();
+  G4VisManager* visManager = new G4VisExecutive;
+  visManager->Initialize();
 
 
   // Get the pointer to the User Interface manager
@@ -108,6 +109,12 @@ int main(int argc,char** argv)
   {
     G4String command = "/control/execute ";
     UImanager->ApplyCommand(command + commandLine->GetOption());
+  }
+  else {
+    // interactive mode
+    auto ui = new G4UIExecutive(argc, argv);
+    ui->SessionStart();
+    delete ui;
   }
   
   delete runManager;
@@ -118,21 +125,21 @@ void CheckCommandLineInputs(Command* commandLine)
 {
   //If the input hasn't been given or the input is empty throw a fatal exception
   
-  if ((commandLine = parser->GetCommandIfActive("-mac")))
-  {
-    if (commandLine->GetOption() == "")
-    {
-        G4ExceptionDescription description;
-        description << "Macro file not given. Set with -mac option at runtime" << G4endl;
-        G4Exception("G4PhaseSpaceReader::G4PhaseSpaceReader", "Macro file NDEF", FatalException, description, "");
-    }
-  }
-  else
-  {
-        G4ExceptionDescription description;
-        description << "Macro file not given. Set with -mac option at runtime" << G4endl;
-        G4Exception("G4PhaseSpaceReader::G4PhaseSpaceReader", "Macro file NDEF", FatalException, description, "");
-  }
+  // if ((commandLine = parser->GetCommandIfActive("-mac")))
+  // {
+  //   if (commandLine->GetOption() == "")
+  //   {
+  //       G4ExceptionDescription description;
+  //       description << "Macro file not given. Set with -mac option at runtime" << G4endl;
+  //       G4Exception("G4PhaseSpaceReader::G4PhaseSpaceReader", "Macro file NDEF", FatalException, description, "");
+  //   }
+  // }
+  // else
+  // {
+  //       G4ExceptionDescription description;
+  //       description << "Macro file not given. Set with -mac option at runtime" << G4endl;
+  //       G4Exception("G4PhaseSpaceReader::G4PhaseSpaceReader", "Macro file NDEF", FatalException, description, "");
+  // }
 
   if ((commandLine = parser->GetCommandIfActive("-out")))
   {
