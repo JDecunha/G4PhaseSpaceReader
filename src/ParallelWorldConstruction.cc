@@ -42,31 +42,31 @@ void ParallelWorldConstruction::Construct()
   // Normal scoring box
   //
 
-  // G4Box* scoringBox = new G4Box("scoringBox", xHalfSize, yHalfSize, zHalfSize);
-  // G4LogicalVolume * scoringBox_logical = new G4LogicalVolume(scoringBox, 0, "scoringBox_logical", 0, 0, 0);
-  // G4ThreeVector phantomOffset = G4ThreeVector(0, 0, ((-5*cm)+1.7*cm));
-  // G4VPhysicalVolume* scoringBox_physical = new G4PVPlacement(0, phantomOffset, scoringBox_logical, "scoringBox_logical", motherWorldLogical, false, 0, false);
+  G4Box* scoringBox = new G4Box("scoringBox", xHalfSize, yHalfSize, zHalfSize);
+  G4LogicalVolume * scoringBox_logical = new G4LogicalVolume(scoringBox, 0, "scoringBox_logical", 0, 0, 0);
+  G4ThreeVector phantomOffset = G4ThreeVector(0, 0, ((-5*cm)+1.7*cm));
+  G4VPhysicalVolume* scoringBox_physical = new G4PVPlacement(0, phantomOffset, scoringBox_logical, "scoringBox_logical", motherWorldLogical, false, 0, false);
 
-  // //Visualize scoring box
-  // G4VisAttributes* scoring_vis = new G4VisAttributes();
-  // scoring_vis->SetColor(1, 0, 0);
-  // scoring_vis->SetVisibility(true);
-  // scoringBox_logical->SetVisAttributes(scoring_vis);
+  //Visualize scoring box
+  G4VisAttributes* scoring_vis = new G4VisAttributes();
+  scoring_vis->SetColor(1, 0, 0);
+  scoring_vis->SetVisibility(true);
+  scoringBox_logical->SetVisAttributes(scoring_vis);
 
-  // //Slice up the scoring box
-  // G4double zAxisResolution = pRunAction->GetScoringResolution();
-  // G4int zIncrements = (zHalfSize*2.)/zAxisResolution; //Set zIncrements according to desired resolution 
-  // G4int xIncrements = 1; G4int yIncrements = 1;
-  // G4int numVoxels = xIncrements*yIncrements*zIncrements;
+  //Slice up the scoring box
+  G4double zAxisResolution = pRunAction->GetScoringResolution();
+  G4int zIncrements = (zHalfSize*2.)/zAxisResolution; //Set zIncrements according to desired resolution 
+  G4int xIncrements = 1; G4int yIncrements = 1;
+  G4int numVoxels = xIncrements*yIncrements*zIncrements;
 
-  // G4Box* ScoringZCuts = new G4Box("ScoringZCuts", 1*cm, 1*cm, (zAxisResolution/2.));
-  // G4LogicalVolume* ScoringZCuts_log = new G4LogicalVolume(ScoringZCuts, 0,"ScoringZCutsLog");
-  // G4VPhysicalVolume* ScoringZCuts_physical = new G4PVReplica("ScoringZCutsPhysical",
-  //                                                             ScoringZCuts_log,
-  //                                                             scoringBox_physical,
-  //                                                             kZAxis,
-  //                                                             zIncrements,
-  //                                                             zAxisResolution);
+  G4Box* ScoringZCuts = new G4Box("ScoringZCuts", 1*cm, 1*cm, (zAxisResolution/2.));
+  G4LogicalVolume* ScoringZCuts_log = new G4LogicalVolume(ScoringZCuts, 0,"ScoringZCutsLog");
+  G4VPhysicalVolume* ScoringZCuts_physical = new G4PVReplica("ScoringZCutsPhysical",
+                                                              ScoringZCuts_log,
+                                                              scoringBox_physical,
+                                                              kZAxis,
+                                                              zIncrements,
+                                                              zAxisResolution);
 
   //Explanation for magic numbers contained in: phantomOffset
   //We want the upper surface of the phantom at 1.7 cm above isocenter. 
@@ -80,39 +80,39 @@ void ParallelWorldConstruction::Construct()
   // High res scoring
   //
 
-  G4Box* scoringBox = new G4Box("scoringBox", xHalfSize, yHalfSize, 0.3*cm);
-  G4LogicalVolume * scoringBox_logical = new G4LogicalVolume(scoringBox, 0, "scoringBox_logical", 0, 0, 0);
+  // G4Box* scoringBox = new G4Box("scoringBox", xHalfSize, yHalfSize, 0.3*cm);
+  // G4LogicalVolume * scoringBox_logical = new G4LogicalVolume(scoringBox, 0, "scoringBox_logical", 0, 0, 0);
 
-  /*
-  Calculating the new offset. Original offset is 1.7 cm above isocenter, minus 5 cm (which is the half length).
-  So the half length puts the top of the box at the center of the world, then we shift it up by 1.7 cm.
-  If we want it to run from 37-43 mm, then we should shift it down by 3.7 cm. And make it 0.6 cm thick (0.3 cm half length).
+  // /*
+  // Calculating the new offset. Original offset is 1.7 cm above isocenter, minus 5 cm (which is the half length).
+  // So the half length puts the top of the box at the center of the world, then we shift it up by 1.7 cm.
+  // If we want it to run from 37-43 mm, then we should shift it down by 3.7 cm. And make it 0.6 cm thick (0.3 cm half length).
 
-  */
+  // */
 
-  G4ThreeVector phantomOffset = G4ThreeVector(0, 0, ((-0.3*cm)+(1.7*cm)-(3.7*cm)));
-  G4VPhysicalVolume* scoringBox_physical = new G4PVPlacement(0, phantomOffset, scoringBox_logical, "scoringBox_logical", motherWorldLogical, false, 0, false);
+  // G4ThreeVector phantomOffset = G4ThreeVector(0, 0, ((-0.3*cm)+(1.7*cm)-(3.7*cm)));
+  // G4VPhysicalVolume* scoringBox_physical = new G4PVPlacement(0, phantomOffset, scoringBox_logical, "scoringBox_logical", motherWorldLogical, false, 0, false);
 
-  //Visualize scoring box
-  G4VisAttributes* scoring_vis = new G4VisAttributes();
-  scoring_vis->SetColor(1, 0, 0);
-  scoring_vis->SetVisibility(true);
-  scoringBox_logical->SetVisAttributes(scoring_vis);
+  // //Visualize scoring box
+  // G4VisAttributes* scoring_vis = new G4VisAttributes();
+  // scoring_vis->SetColor(1, 0, 0);
+  // scoring_vis->SetVisibility(true);
+  // scoringBox_logical->SetVisAttributes(scoring_vis);
 
-  //Slice up the scoring box
-  G4double zAxisResolution = 0.01*mm;
-  G4int zIncrements = (0.3*2.*cm)/zAxisResolution; //Set zIncrements according to desired resolution 
-  G4int xIncrements = 1; G4int yIncrements = 1;
-  G4int numVoxels = xIncrements*yIncrements*zIncrements;
+  // //Slice up the scoring box
+  // G4double zAxisResolution = 0.01*mm;
+  // G4int zIncrements = (0.3*2.*cm)/zAxisResolution; //Set zIncrements according to desired resolution 
+  // G4int xIncrements = 1; G4int yIncrements = 1;
+  // G4int numVoxels = xIncrements*yIncrements*zIncrements;
 
-  G4Box* ScoringZCuts = new G4Box("ScoringZCuts", 1*cm, 1*cm, (zAxisResolution/2.));
-  G4LogicalVolume* ScoringZCuts_log = new G4LogicalVolume(ScoringZCuts, 0,"ScoringZCutsLog");
-  G4VPhysicalVolume* ScoringZCuts_physical = new G4PVReplica("ScoringZCutsPhysical",
-                                                              ScoringZCuts_log,
-                                                              scoringBox_physical,
-                                                              kZAxis,
-                                                              zIncrements,
-                                                              zAxisResolution);
+  // G4Box* ScoringZCuts = new G4Box("ScoringZCuts", 1*cm, 1*cm, (zAxisResolution/2.));
+  // G4LogicalVolume* ScoringZCuts_log = new G4LogicalVolume(ScoringZCuts, 0,"ScoringZCutsLog");
+  // G4VPhysicalVolume* ScoringZCuts_physical = new G4PVReplica("ScoringZCutsPhysical",
+  //                                                             ScoringZCuts_log,
+  //                                                             scoringBox_physical,
+  //                                                             kZAxis,
+  //                                                             zIncrements,
+  //                                                             zAxisResolution);
 
 }
 
