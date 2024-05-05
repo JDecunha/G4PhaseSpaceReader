@@ -1,6 +1,7 @@
 //MicroTrackGenerator
 #include "DetectorConstruction.hh"
 #include "DetectorConstructionMessenger.hh"
+#include "Eppendorf_48WellPlate_Model.hh"
 //Geant4
 #include "G4Material.hh"
 #include "G4NistManager.hh"
@@ -64,7 +65,10 @@ G4VPhysicalVolume* DetectorConstruction::ConstructDetector()
   //So IRL the phantom bottom surface will be 1.7 cm below isocenter, but in this simulation it will be 1.7 cm above isocenter.
   G4ThreeVector phantomOffset = G4ThreeVector(0, 0, (-zhalfsize+1.7*cm));
 
-  G4VPhysicalVolume* LucitePhantom_physical = new G4PVPlacement(0, phantomOffset, LucitePhantom_log, "LucitePhantom", logicWorld, false, 0, false);
+  // G4VPhysicalVolume* LucitePhantom_physical = new G4PVPlacement(0, phantomOffset, LucitePhantom_log, "LucitePhantom", logicWorld, false, 0, false);
+
+  Eppendorf_48WellPlate_Model model;
+  model.Construct(logicWorld);
 
   return physiWorld;
 }
