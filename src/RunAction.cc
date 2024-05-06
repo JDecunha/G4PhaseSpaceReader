@@ -14,9 +14,12 @@ RunAction::RunAction()
   analysisManager->SetNtupleMerging(true);
 
   //Set scoring geometry parameters (the parallel world pulls these parameters to ensure consistency between histograms and scoring geometry)
-  _scoringHalfLength = 5*cm;
-  _scoringResolution = 0.1*mm;
-  _numBins = (_scoringHalfLength*2.)/_scoringResolution;
+  // _scoringHalfLength = 5*cm;
+  // _scoringResolution = 0.1*mm;
+  // _numBins = (_scoringHalfLength*2.)/_scoringResolution;
+
+  // For cell plate scoring
+  _numBins = 48;
 
   //Proton energy spectrum params
   G4double minEnergy = 0.001; //in MeV (the minimum is specified by NIST-PSTAR)
