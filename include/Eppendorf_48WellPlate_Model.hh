@@ -15,7 +15,7 @@ class Eppendorf_48WellPlate_Model
 {
   public:
 	void Construct(G4LogicalVolume* motherVol);
-	void ConstructLiquidandScorers(G4LogicalVolume* motherVol, G4double liquidHeight);
+	void ConstructLiquidandScorers(G4LogicalVolume* motherVol, G4double liquidHeight, G4double phantomThickness);
 
 };
 

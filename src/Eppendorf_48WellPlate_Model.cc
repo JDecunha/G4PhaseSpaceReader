@@ -30,12 +30,12 @@ void Eppendorf_48WellPlate_Model::Construct(G4LogicalVolume* motherVol)
   // Solid materials
   //
 
-  G4VSolid* solidWellPlate = new G4Box("WellPlate", width/2, length/2, height/2);
+  G4VSolid* solidWellPlate = new G4Box("WellPlate", length/2, width/2,  height/2);
 
   double lidWidth = 84.3*mm;
   double lidLength = 127.6*mm;
   double lidHeight = bt;
-  G4VSolid* solidLid = new G4Box("Lid", lidWidth/2, lidLength/2, lidHeight/2);
+  G4VSolid* solidLid = new G4Box("Lid", lidLength/2, lidWidth/2,  lidHeight/2);
 
   // G4Cons(const G4String& pName,
   //             G4double  pRmin1,
@@ -78,7 +78,7 @@ void Eppendorf_48WellPlate_Model::Construct(G4LogicalVolume* motherVol)
       double heightShift = initialHeightOffset; // I don't need to shift the height into a new coordinate system because it is already centered
       // The width and length however I am using the top right corner as the initial reference
 
-      solidWellPlate = new G4SubtractionSolid("Well_MinusWellPlate", solidWellPlate, solidWell, 0, G4ThreeVector(widthShift, lengthShift, heightShift));
+      solidWellPlate = new G4SubtractionSolid("Well_MinusWellPlate", solidWellPlate, solidWell, 0, G4ThreeVector(lengthShift, widthShift, -heightShift));
     }
 
     
@@ -92,7 +92,7 @@ void Eppendorf_48WellPlate_Model::Construct(G4LogicalVolume* motherVol)
                                     "WellPlate_logical");    //its name
 
   G4VPhysicalVolume* physicalWellPlate = new G4PVPlacement(0,      //no rotation
-                                  G4ThreeVector(0.,0.,(20*mm)-height),  //Shift up because the wells have a tiny air gap under them
+                                  G4ThreeVector(0.,0.,-((20*mm)-height)),  //Shift up because the wells have a tiny air gap under them
                                   logicWellPlate,    //its logical volume
                                   "WellPlate_physical",    //its name
                                   motherVol,      //its mother  volume
@@ -105,7 +105,7 @@ void Eppendorf_48WellPlate_Model::Construct(G4LogicalVolume* motherVol)
                                     "Lid_logical");    //its name
 
   G4VPhysicalVolume* physicalLid = new G4PVPlacement(0,      //no rotation
-                                  G4ThreeVector(0.,0.,((20*mm)-height)+(height/2)+(lidHeight/2)),  //Shift up because the wells have a tiny air gap under them
+                                  G4ThreeVector(0.,0.,-(((20*mm)-height)+(height/2)+(lidHeight/2))),  //Shift up because the wells have a tiny air gap under them
                                   logicLid,    //its logical volume
                                   "Lid_physical",    //its name
                                   motherVol,      //its mother  volume
@@ -200,7 +200,7 @@ void Eppendorf_48WellPlate_Model::ConstructLiquidandScorers(G4LogicalVolume* mot
       //5.) Adding liquidHeight/2 takes us up so the bottom of the liquid is on top of the scorer
 
       G4VPhysicalVolume* physicalLiquid = new G4PVPlacement(0,      //no rotation
-                                  G4ThreeVector(widthShift, lengthShift, plateUpwardShift-(height/2)+bt+scorerHeight+(liquidHeight/2)),  //Shift up because the wells have a tiny air gap under them
+                                  G4ThreeVector(lengthShift, widthShift, -(plateUpwardShift-(height/2)+bt+scorerHeight+(liquidHeight/2))),  //Shift up because the wells have a tiny air gap under them
                                   logicLiquid,    //its logical volume
                                   "Liquid_physical",    //its name
                                   motherVol,      //its mother  volume
@@ -208,7 +208,7 @@ void Eppendorf_48WellPlate_Model::ConstructLiquidandScorers(G4LogicalVolume* mot
                                   copyNo, false);     
 
       G4VPhysicalVolume* physicalScorer = new G4PVPlacement(0,      //no rotation
-                                  G4ThreeVector(widthShift, lengthShift, plateUpwardShift-(height/2)+bt+(scorerHeight/2)),  //Shift up because the wells have a tiny air gap under them
+                                  G4ThreeVector(lengthShift, widthShift, -(plateUpwardShift-(height/2)+bt+(scorerHeight/2))),  //Shift up because the wells have a tiny air gap under them
                                   logicScorer,    //its logical volume
                                   "Scorer_physical",    //its name
                                   motherVol,      //its mother  volume
