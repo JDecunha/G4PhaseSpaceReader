@@ -8,8 +8,8 @@
 #BSUB -R rusage[mem=168]
 #BSUB -n 28
 #BSUB -u jdecunha@mdanderson.org
-#BSUB -J RegularHP_100Mil
+#BSUB -J AllHP_100Mil
 
 source /rsrch3/home/radphys_rsch/jdecunha/seadragon2/configure_sdr2.sh
 
-./G4PhaseSpaceReader -out ../output/test -mac ../macros/RegularHP_100mil.mac -seed 4094 -mt NMAX -phasespace /rsrch3/home/radphys_rsch/jdecunha/seadragon2/PhaseSpaces/G3_beamline_10mil.txt -hadronic_inelastic_physics G4HadronPhysicsQGSP_BIC_HP
+./G4PhaseSpaceReader -out ../output/test -mac ../macros/AllHP_100mil_highRes.mac -seed 4094 -mt NMAX -phasespace /rsrch3/home/radphys_rsch/jdecunha/seadragon2/PhaseSpaces/G3_beamline_10mil.txt -hadronic_inelastic_physics G4HadronPhysicsQGSP_BIC_AllHP -phantom_Type LuciteBlockHighRes -phantom_thickness 100 -scoring_resolution 0.01
