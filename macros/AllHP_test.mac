@@ -53,5 +53,5 @@
 /vis/verbose warnings
 # Visualisation ends
 
-/run/beamOn 10
+/run/beamOn 300
 

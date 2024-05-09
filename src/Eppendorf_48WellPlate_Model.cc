@@ -12,7 +12,7 @@
 #include "G4PVParameterised.hh"
 #include "G4VisAttributes.hh"
 
-void Eppendorf_48WellPlate_Model::Construct(G4LogicalVolume* motherVol)
+void Eppendorf_48WellPlate_Model::Construct(G4LogicalVolume* motherVol, G4double phantomHalfLength)
 {
   //Define materials
   G4NistManager * man = G4NistManager::Instance();
@@ -24,6 +24,7 @@ void Eppendorf_48WellPlate_Model::Construct(G4LogicalVolume* motherVol)
   double bt = 1.366666*mm;
   double h2 = 17.0*mm;
   double height = h2+bt; // The total thickness of the plate is h2 + bt (where I've taken bt from Madison's measurement)
+  double overallHeightShift = phantomHalfLength*2-((1.7*cm)/2);
   //Madison's bt = 1.36666 mm, diagram bt = 1.4 mm, so basically the same.
 
   //
@@ -92,7 +93,7 @@ void Eppendorf_48WellPlate_Model::Construct(G4LogicalVolume* motherVol)
                                     "WellPlate_logical");    //its name
 
   G4VPhysicalVolume* physicalWellPlate = new G4PVPlacement(0,      //no rotation
-                                  G4ThreeVector(0.,0.,-((20*mm)-height)),  //Shift up because the wells have a tiny air gap under them
+                                  G4ThreeVector(0.,0.,-((20*mm)-height)-overallHeightShift),  //Shift up because the wells have a tiny air gap under them
                                   logicWellPlate,    //its logical volume
                                   "WellPlate_physical",    //its name
                                   motherVol,      //its mother  volume
@@ -105,7 +106,7 @@ void Eppendorf_48WellPlate_Model::Construct(G4LogicalVolume* motherVol)
                                     "Lid_logical");    //its name
 
   G4VPhysicalVolume* physicalLid = new G4PVPlacement(0,      //no rotation
-                                  G4ThreeVector(0.,0.,-(((20*mm)-height)+(height/2)+(lidHeight/2))),  //Shift up because the wells have a tiny air gap under them
+                                  G4ThreeVector(0.,0.,-(((20*mm)-height)+(height/2)+(lidHeight/2))-overallHeightShift),  //Shift up because the wells have a tiny air gap under them
                                   logicLid,    //its logical volume
                                   "Lid_physical",    //its name
                                   motherVol,      //its mother  volume
@@ -126,7 +127,7 @@ void Eppendorf_48WellPlate_Model::Construct(G4LogicalVolume* motherVol)
 
 }
 
-void Eppendorf_48WellPlate_Model::ConstructLiquidandScorers(G4LogicalVolume* motherVol, G4double volumeMl, G4double phantomThickness)
+void Eppendorf_48WellPlate_Model::ConstructLiquidandScorers(G4LogicalVolume* motherVol, G4double volumeMl, G4double phantomHalfLength)
 {
   //Define materials
   G4NistManager * man = G4NistManager::Instance();
@@ -138,6 +139,7 @@ void Eppendorf_48WellPlate_Model::ConstructLiquidandScorers(G4LogicalVolume* mot
   double bt = 1.366666*mm;
   double h2 = 17.0*mm;
   double height = h2+bt; // The total thickness of the plate is h2 + bt (where I've taken bt from Madison's measurement)
+  double overallHeightShift = phantomHalfLength*2-((1.7*cm)/2);
   //Madison's bt = 1.36666 mm, diagram bt = 1.4 mm, so basically the same.
 
   // Volume of a cylinder =  pi * r^2 * h
@@ -200,7 +202,7 @@ void Eppendorf_48WellPlate_Model::ConstructLiquidandScorers(G4LogicalVolume* mot
       //5.) Adding liquidHeight/2 takes us up so the bottom of the liquid is on top of the scorer
 
       G4VPhysicalVolume* physicalLiquid = new G4PVPlacement(0,      //no rotation
-                                  G4ThreeVector(lengthShift, widthShift, -(plateUpwardShift-(height/2)+bt+scorerHeight+(liquidHeight/2))),  //Shift up because the wells have a tiny air gap under them
+                                  G4ThreeVector(lengthShift, widthShift, -(plateUpwardShift-(height/2)+bt+scorerHeight+(liquidHeight/2))-overallHeightShift),  //Shift up because the wells have a tiny air gap under them
                                   logicLiquid,    //its logical volume
                                   "Liquid_physical",    //its name
                                   motherVol,      //its mother  volume
@@ -208,7 +210,7 @@ void Eppendorf_48WellPlate_Model::ConstructLiquidandScorers(G4LogicalVolume* mot
                                   copyNo, false);     
 
       G4VPhysicalVolume* physicalScorer = new G4PVPlacement(0,      //no rotation
-                                  G4ThreeVector(lengthShift, widthShift, -(plateUpwardShift-(height/2)+bt+(scorerHeight/2))),  //Shift up because the wells have a tiny air gap under them
+                                  G4ThreeVector(lengthShift, widthShift, -(plateUpwardShift-(height/2)+bt+(scorerHeight/2))-overallHeightShift),  //Shift up because the wells have a tiny air gap under them
                                   logicScorer,    //its logical volume
                                   "Scorer_physical",    //its name
                                   motherVol,      //its mother  volume

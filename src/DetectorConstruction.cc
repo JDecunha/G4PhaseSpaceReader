@@ -100,8 +100,8 @@ G4VPhysicalVolume* DetectorConstruction::ConstructDetector()
   else if (_phantomSetup == "WellPlate")
   {
     Eppendorf_48WellPlate_Model model;
-    model.Construct(logicWorld);
-    model.ConstructLiquidandScorers(logicWorld,2.5, 30*mm);
+    model.Construct(logicWorld, _phantomHalfLength);
+    model.ConstructLiquidandScorers(logicWorld, 2.5, _phantomHalfLength);
   }
   else
   {
