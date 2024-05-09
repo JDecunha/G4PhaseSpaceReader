@@ -1,10 +1,16 @@
 //This project
 #include "RunAction.hh"
+#include "DetectorConstruction.hh"
 //Geant4
 #include "G4SystemOfUnits.hh"
 #include "G4AnalysisManager.hh"
 #include "G4Run.hh"
 #include "G4Threading.hh"
+#ifdef G4MULTITHREADED
+  #include "G4MTRunManager.hh"
+#else
+  #include "G4RunManager.hh"
+#endif
 
 
 RunAction::RunAction()
@@ -13,23 +19,41 @@ RunAction::RunAction()
   analysisManager->SetVerboseLevel(1);
   analysisManager->SetNtupleMerging(true);
 
-  //Set scoring geometry parameters (the parallel world pulls these parameters to ensure consistency between histograms and scoring geometry)
-  // _scoringHalfLength = 5*cm;
-  // _scoringResolution = 0.1*mm;
-  // _numBins = (_scoringHalfLength*2.)/_scoringResolution;
-
-  // For cell plate scoring
-  _numBins = 48;
+  // Pull user inputs from detector construction
+  DetectorConstruction* pDetectorConstruction = ((DetectorConstruction*)G4RunManager::GetRunManager()->GetUserDetectorConstruction());
+  G4double phantomHalfSize = pDetectorConstruction->GetPhantomHalfLength();
+  G4double scoringResolution = pDetectorConstruction->GetScoringResolution();
+  G4String _phantomType = pDetectorConstruction->GetPhantomType();
 
   //Proton energy spectrum params
   G4double minEnergy = 0.001; //in MeV (the minimum is specified by NIST-PSTAR)
   G4double maxEnergy = 300; //300 MeV, upper end of clinical range
   G4double energySpectrumNbins = 512; //Currently we are spacing logarithmically
-  // G4double energyResolution = 0.001; //1 keV resolution (rough 300k bins per histogram though) ... this was so many it brought the program to a halt.
-  // G4int energySpectrumNbins = (maxEnergy-minEnergy)/energyResolution;
-
   G4double minLET = 0.3;
   G4double maxLET = 100;
+
+  _numBins = 0;
+
+  if (_phantomType == "LuciteBlock")
+  {
+    // std::cout << "RunAction: Phantom type is LuciteBlock" << std::endl;
+    _numBins = (phantomHalfSize*2.)/scoringResolution;
+  }
+  else if (_phantomType == "WellPlate")
+  {
+    // std::cout << "RunAction: Phantom type is WellPlate" << std::endl;
+    _numBins = 48; // 48 well plate
+
+  }
+  else if (_phantomType == "LuciteBlockHighRes")
+  {
+    // std::cout << "RunAction: Phantom type is LuciteBlockHighRes" << std::endl;
+    _numBins = (60*mm)/scoringResolution; // The 60 mm magic number comes from us scoring from 37 to 43 mm.
+  }
+  else
+  {
+    std::cout << "RunAction: Phantom type " << _phantomType << " is unknown." << std::endl;
+  }
 
   //Creating histograms
   //Dose scorer
@@ -42,12 +66,11 @@ RunAction::RunAction()
   analysisManager->CreateH2("ProtonEnergySpectrum" ,"Holds the proton energy spectrum in each bin.", _numBins, 0, _numBins, energySpectrumNbins,  minEnergy, maxEnergy, "none", "none", "none", "none", "linear", "log");
   // analysisManager->CreateH2("ProtonSlowingEnergySpectrum" ,"Holds the proton energy spectrum (for all proton steps) in each bin.", _numBins, 0, _numBins, energySpectrumNbins,  minEnergy, maxEnergy, "none", "none", "none", "none", "linear", "log");
   analysisManager->CreateH2("LETSpectrum" ,"LET spectrum in each bin.", _numBins, 0, _numBins, energySpectrumNbins,  minLET, maxLET, "none", "none", "none", "none", "linear", "log");
-
 }
 
 void RunAction::BeginOfRunAction(const G4Run*)
 {
-
+  
 }
 
 void RunAction::EndOfRunAction(const G4Run*)

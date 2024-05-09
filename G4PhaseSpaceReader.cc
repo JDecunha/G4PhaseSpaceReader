@@ -19,6 +19,7 @@
 #include "G4UImanager.hh"
 #include "G4VisExecutive.hh"
 #include "G4UIExecutive.hh"
+#include "G4SystemOfUnits.hh"
 
 //Global command line parser
 CommandLineParser* parser(0);
@@ -87,13 +88,29 @@ int main(int argc,char** argv)
     psAccess.SetPhaseSpacePath(commandLine->GetOption());
   }
 
-  // Set up the geometry (physical and parallel world)
-  auto pDetectorConstruction = new DetectorConstruction();
+  G4String phantomType;
+  G4double scoringResolution;
+  G4double phantomThickness;
 
-  //Comment out if using scoring in the Detector Construction
-  // G4String scoringWorldName = "ScoringWorld";
-  // pDetectorConstruction->RegisterParallelWorld(new ParallelWorldConstruction(scoringWorldName)); //Connect the detector construction to the parallel world. (This is done if you want to use layered mass geometry)
-  // pPhysicsList->RegisterPhysics(new G4ParallelWorldPhysics(scoringWorldName));
+  if (commandLine = parser->GetCommandIfActive("-phantom_Type"))
+  {
+    phantomType = commandLine->GetOption();
+  }
+  if (commandLine = parser->GetCommandIfActive("-scoring_resolution"))
+  {
+    scoringResolution = std::stod(commandLine->GetOption())*mm;
+  }
+  if (commandLine = parser->GetCommandIfActive("-phantom_thickness"))
+  {
+    phantomThickness = std::stod(commandLine->GetOption())*mm;
+  }
+
+  // Set up the geometry (physical and parallel world)
+  auto pDetectorConstruction = new DetectorConstruction(phantomType,phantomThickness/2,scoringResolution);
+
+  G4String scoringWorldName = "ScoringWorld";
+  pDetectorConstruction->RegisterParallelWorld(new ParallelWorldConstruction(scoringWorldName)); //Connect the detector construction to the parallel world. (This is done if you want to use layered mass geometry)
+  pPhysicsList->RegisterPhysics(new G4ParallelWorldPhysics(scoringWorldName));
 
   // Set mandatory user initialization classes
   runManager->SetUserInitialization(pDetectorConstruction);
@@ -208,6 +225,12 @@ void Parse(int& argc, char** argv)
   parser->AddCommand("-phasespace",Command::WithOption,"Path to phase space file","");
 
   parser->AddCommand("-hadronic_inelastic_physics",Command::WithOption,"Name of hadronic inelastic physics list model","");
+
+  parser->AddCommand("-phantom_Type",Command::WithOption,"","");
+
+  parser->AddCommand("-phantom_thickness",Command::WithOption,"","");
+
+  parser->AddCommand("-scoring_resolution",Command::WithOption,"","");
 
 #ifdef G4MULTITHREADED
   parser->AddCommand("-mt",Command::WithOption,"Launch in MT mode (events computed in parallel)","");

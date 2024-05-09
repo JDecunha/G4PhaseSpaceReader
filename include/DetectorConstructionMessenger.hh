@@ -4,6 +4,7 @@
 
 class DetectorConstruction;
 class G4UIdirectory;
+class G4UIcmdWithAString;
 class G4UIcmdWithADoubleAndUnit;
 
 class DetectorConstructionMessenger : public G4UImessenger
@@ -17,5 +18,7 @@ class DetectorConstructionMessenger : public G4UImessenger
   private:
 	DetectorConstruction* pDetectorConstruction{};
 	G4UIdirectory* geometry_directory{};
-	G4UIcmdWithADoubleAndUnit* geometry_voxel_sidelength{};
+	G4UIcmdWithAString* geometry_type{};
+	G4UIcmdWithADoubleAndUnit* phantom_thickness{};
+	G4UIcmdWithADoubleAndUnit* scoring_resolution{};
 };

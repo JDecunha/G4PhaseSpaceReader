@@ -16,7 +16,6 @@
 #Visualisation starts
 /vis/open HepRepFile
 
-
 #Auxillaryedge shows the edge as the simulator sees it, which is not ideal (composed of triangles)
 
 /vis/viewer/set/auxiliaryEdge false

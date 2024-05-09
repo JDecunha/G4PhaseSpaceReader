@@ -126,7 +126,7 @@ void Eppendorf_48WellPlate_Model::Construct(G4LogicalVolume* motherVol)
 
 }
 
-void Eppendorf_48WellPlate_Model::ConstructLiquidandScorers(G4LogicalVolume* motherVol, G4double volumeMl)
+void Eppendorf_48WellPlate_Model::ConstructLiquidandScorers(G4LogicalVolume* motherVol, G4double volumeMl, G4double phantomThickness)
 {
   //Define materials
   G4NistManager * man = G4NistManager::Instance();
