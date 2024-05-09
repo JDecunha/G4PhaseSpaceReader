@@ -47,7 +47,13 @@ void Eppendorf_48WellPlate_Model::Construct(G4LogicalVolume* motherVol, G4double
   //             G4double  pSPhi,
   //             G4double  pDPhi)
 
-  // G4VSolid* solidWell = new G4Tubs("Well", 0., (10.7/2.)*mm, h2/2, 0., 2*M_PI*rad); //diameter 10.7 mm, height 17.0 mm
+  //
+  // BELOW FOR NICE VISUALISATION IN WIRE FRAME ONLY
+  //
+  // G4VSolid* solidWell = new G4Tubs("Well", 0., (10.7/2.)*mm, height, 0., 2*M_PI*rad); //diameter 10.7 mm, height 17.0 mm
+
+
+  // The real well dimension
   G4VSolid* solidWell = new G4Cons("Well", 0., (10.4/2.)*mm, 0., (10.7/2.)*mm,  h2/2, 0., 2*M_PI*rad); //diameter 10.7 mm, height 17.0 mm
 
   
