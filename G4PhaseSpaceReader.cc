@@ -103,6 +103,7 @@ int main(int argc,char** argv)
   if (commandLine = parser->GetCommandIfActive("-phantom_thickness"))
   {
     phantomThickness = std::stod(commandLine->GetOption())*mm;
+    // std::cout << "phantom Thickness: "
   }
 
   // Set up the geometry (physical and parallel world)

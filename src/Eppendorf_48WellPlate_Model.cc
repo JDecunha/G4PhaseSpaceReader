@@ -151,7 +151,7 @@ void Eppendorf_48WellPlate_Model::ConstructLiquidandScorers(G4LogicalVolume* mot
   // Volume of a cylinder =  pi * r^2 * h
   // h = (volume)/(pi*r^2);
   double liquidHeight = (volumeMl*1000)/(3.14159*10.4*mm*10.4*mm);
-  double scorerHeight = 1.0*mm;
+  double scorerHeight = 0.01*mm;
   liquidHeight = liquidHeight-scorerHeight;
 
 
@@ -198,7 +198,7 @@ void Eppendorf_48WellPlate_Model::ConstructLiquidandScorers(G4LogicalVolume* mot
 
       double plateUpwardShift = (20*mm)-height;
 
-      G4int copyNo = Row*8+Column;
+      G4int copyNo = Row*6+Column;
 
       //Logical rationale for the height shift below:
       //1.) Plate upward shift shifts us up the 1.7 mm the plate is shifted upwards (center is sitting on the center of the plate now)
