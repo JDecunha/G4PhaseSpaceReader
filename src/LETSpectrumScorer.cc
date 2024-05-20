@@ -69,6 +69,7 @@ std::pair<std::vector<double>,std::vector<double>> LETSpectrumScorer::PullStoppi
 
   //The path, an input stream, and a temp to hold the line being readout
   std::string filePath = "/rsrch3/home/radphys_rsch/jdecunha/seadragon2/G4PhaseSpaceReader/data/PSTAR_LETs_512.csv";
+  // std::string filePath = "/rsrch3/home/radphys_rsch/jdecunha/seadragon2/G4PhaseSpaceReader/data/PSTAR_LETs_512.csv";
   std::ifstream SPFile(filePath);
   std::string ReadoutLine;
 
