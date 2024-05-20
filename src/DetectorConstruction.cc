@@ -67,7 +67,7 @@ G4VPhysicalVolume* DetectorConstruction::ConstructDetector()
                                   0);      //copy number
 
   //Create the phantom
-  G4double xhalfsize = 8.0*cm; //16 cm x 12 cm x 10 cm thick
+  G4double xhalfsize = 8.0*cm; //16 cm x 12 cm x [User defined] cm thick
   G4double yhalfsize = 6.0*cm;
   G4double zhalfsize = _phantomHalfLength;
   G4Box* LucitePhantom = new G4Box("LucitePhantom", xhalfsize, yhalfsize, zhalfsize); //Initial phase space covers 13 cm x 9 cm (i.e 6.5 x 4.5 half length)
@@ -102,6 +102,51 @@ G4VPhysicalVolume* DetectorConstruction::ConstructDetector()
     Eppendorf_48WellPlate_Model model;
     model.Construct(logicWorld, _phantomHalfLength);
     model.ConstructLiquidandScorers(logicWorld, 2.5, _phantomHalfLength);
+  }
+  else if (_phantomSetup == "LateralScoring")
+  {
+    G4Box* LuciteLateralBox = new G4Box("LuciteLateralBox", xhalfsize, yhalfsize, 0.5*mm); //1 mm thick slab to sit on top
+    G4LogicalVolume* LuciteLateralBox_log = new G4LogicalVolume(LuciteLateralBox, lucite,"LuciteLateralBox_log");
+    G4ThreeVector slabOffset = G4ThreeVector(0, 0, (-zhalfsize+1.7*cm)-zhalfsize-(0.5*mm));
+    G4VPhysicalVolume* LuciteLateralBox_physical = new G4PVPlacement(0, slabOffset, LuciteLateralBox_log, "LuciteLateralBox", logicWorld, false, 0, false);
+
+    //Gotta do some replica stuff here huh
+
+    //So the box is 16 x 12 cm. If I slice it up in 1 mm x 1 mm x 1mm cubes I will have
+    //160 x 120 = 19200 voxels. Seems like a lot, I hope it doesn't destroy me
+
+    G4double resolution = 1*mm;
+    G4int xIncrements = 160; 
+    G4int yIncrements = 120;
+    G4int numVoxels = xIncrements*yIncrements;
+
+    G4Box* ScoringXCuts = new G4Box("ScoringXCuts", resolution/2, yhalfsize, 0.5*mm); //1 mm thick slab to sit on top
+    G4LogicalVolume* ScoringXCuts_logical = new G4LogicalVolume(ScoringXCuts, lucite,"ScoringXCuts_logical");
+
+    G4VPhysicalVolume* ScoringXCuts_physical = new G4PVReplica("ScoringXCutsPhysical",
+                                                                ScoringXCuts_logical,
+                                                                LuciteLateralBox_physical,
+                                                                kXAxis,
+                                                                xIncrements,
+                                                                resolution);
+
+    G4Box* ScoringYCuts = new G4Box("ScoringYCuts", resolution/2, resolution/2, 0.5*mm); //1 mm thick slab to sit on top
+    G4LogicalVolume* ScoringYCuts_logical = new G4LogicalVolume(ScoringYCuts, lucite,"ScoringYCuts_logical");
+
+    G4VPhysicalVolume* ScoringYCuts_physical = new G4PVReplica("ScoringYCutsPhysical",
+                                                              ScoringYCuts_logical,
+                                                              ScoringXCuts_physical,
+                                                              kYAxis,
+                                                              yIncrements,
+                                                              resolution);
+
+    // I should visualize here
+    G4VisAttributes* lateral_vis = new G4VisAttributes();
+    lateral_vis->SetColor(0, 1, 0);
+    lateral_vis->SetVisibility(true);
+    ScoringYCuts_logical->SetVisAttributes(lateral_vis);
+
+
   }
   else
   {
@@ -145,5 +190,38 @@ void DetectorConstruction::ConstructSDandField()
     //Register sensitive detector with SDManager, and register SD with logical volume
     SDManager->AddNewDetector(MultiFuncDetector);
     SetSensitiveDetector("Scorer_Logical",MultiFuncDetector);
+  }
+  else if (_phantomSetup == "LateralScoring")
+  {
+    // std::cout << "Physical world scoring activated" << std::endl;
+
+    //Set up the scoring
+    G4SDManager* SDManager = G4SDManager::GetSDMpointer();
+    G4MultiFunctionalDetector* MultiFuncDetector = new G4MultiFunctionalDetector("multifuncdetector1");
+
+    //Make the scorers
+    G4VPrimitiveScorer* edepScorer;
+    edepScorer = new EdepScorer("edep",0);
+    MultiFuncDetector->RegisterPrimitive(edepScorer);
+
+    G4VPrimitiveScorer* edepSquaredScorer;
+    edepSquaredScorer = new EdepSquaredEventbyEventScorer("edepSquared",0);
+    MultiFuncDetector->RegisterPrimitive(edepSquaredScorer);
+
+    G4VPrimitiveScorer* protonEnergySpectrumScorer;
+    protonEnergySpectrumScorer = new ProtonSpectrumScorer("protonSpectrum",0);
+    MultiFuncDetector->RegisterPrimitive(protonEnergySpectrumScorer);
+
+    G4VPrimitiveScorer* letSpectrumScorer;
+    letSpectrumScorer = new LETSpectrumScorer("LETSpectrum",0);
+    MultiFuncDetector->RegisterPrimitive(letSpectrumScorer);
+
+    // G4VPrimitiveScorer* protonSlowingSpectrumScorer;
+    // protonSlowingSpectrumScorer = new ProtonSlowingSpectrumScorer("protonSlowingSpectrum",0);
+    // MultiFuncDetector->RegisterPrimitive(protonSlowingSpectrumScorer);
+
+    //Register sensitive detector with SDManager, and register SD with logical volume
+    SDManager->AddNewDetector(MultiFuncDetector);
+    SetSensitiveDetector("ScoringYCuts_logical",MultiFuncDetector);
   }
 }

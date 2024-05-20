@@ -28,6 +28,7 @@
 /vis/scene/add/volume Lid_physical
 /vis/scene/add/volume Liquid_physical
 /vis/scene/add/volume Scorer_physical
+#/vis/scene/add/volume Scorer_physical
 
 /vis/scene/add/trajectories rich
 /vis/viewer/flush

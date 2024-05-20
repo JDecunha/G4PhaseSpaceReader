@@ -50,6 +50,11 @@ RunAction::RunAction()
     // std::cout << "RunAction: Phantom type is LuciteBlockHighRes" << std::endl;
     _numBins = (60*mm)/scoringResolution; // The 60 mm magic number comes from us scoring from 37 to 43 mm.
   }
+  else if (_phantomType == "LateralScoring")
+  {
+    // std::cout << "RunAction: Phantom type is LuciteBlockHighRes" << std::endl;
+    _numBins = 120*160; // The 60 mm magic number comes from us scoring from 37 to 43 mm.
+  }
   else
   {
     std::cout << "RunAction: Phantom type " << _phantomType << " is unknown." << std::endl;
