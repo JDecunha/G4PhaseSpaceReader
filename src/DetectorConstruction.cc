@@ -317,7 +317,7 @@ void DetectorConstruction::ConstructSDandField()
     SDManager->AddNewDetector(MultiFuncDetector);
     SetSensitiveDetector("Scorer_Logical",MultiFuncDetector);
   }
-  else if (_phantomSetup == "LateralScoring")
+  else if (_phantomSetup == "LateralScoring" || _phantomSetup == "LateralScoringWide")
   {
     // std::cout << "Physical world scoring activated" << std::endl;
 
