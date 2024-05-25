@@ -20,7 +20,7 @@ G4bool EdepScorer::ProcessHits(G4Step* aStep, G4TouchableHistory*)
   {
     G4int indexa = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth);
     G4int indexb = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth+1);
-    G4int index = (indexb*120)+indexa;
+    G4int index = (indexb*50)+indexa;
 
     auto analysisManager = G4AnalysisManager::Instance();
     analysisManager->FillH1(0 , index, edep);
