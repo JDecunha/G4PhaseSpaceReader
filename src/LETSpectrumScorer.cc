@@ -24,7 +24,7 @@ G4bool LETSpectrumScorer::ProcessHits(G4Step* aStep, G4TouchableHistory*)
   {
     G4int indexa = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth);
     G4int indexb = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth+1);
-    G4int index = (indexb*50)+indexa;
+    G4int index = (indexb*40)+indexa;
     G4double energy = aStep->GetPreStepPoint()->GetKineticEnergy();
     G4double LET = LookupLET(energy);
     
