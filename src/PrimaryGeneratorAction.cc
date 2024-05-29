@@ -46,8 +46,8 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
         if (currentItem == 5) {y = std::stod(word);}
         if (currentItem == 6) {x = std::stod(word);}
         if (currentItem == 7) {z = std::stod(word);}
-        if (currentItem == 8) {wx = std::stod(word);}
-        if (currentItem == 9) {wy = std::stod(word);}
+        if (currentItem == 8) {wy = std::stod(word);}
+        if (currentItem == 9) {wx = std::stod(word);}
         if (currentItem == 10) {wz = std::stod(word);}
 
         ++currentItem;
