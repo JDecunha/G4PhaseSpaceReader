@@ -56,7 +56,7 @@ RunAction::RunAction()
   }
   else if (_phantomType == "LateralScoringWide")
   {
-    _numBins = 50*40; 
+    _numBins = 60*60; 
   }
   else
   {

@@ -205,8 +205,8 @@ G4VPhysicalVolume* DetectorConstruction::ConstructDetector()
   else if (_phantomSetup == "LateralScoringWide")
   {
     //Create the phantom
-    G4double xhalfsize = 12.5*cm; //16 cm x 12 cm x [User defined] cm thick
-    G4double yhalfsize = 10.0*cm;
+    G4double xhalfsize = 15.0*cm; //16 cm x 12 cm x [User defined] cm thick
+    G4double yhalfsize = 15.0*cm;
     G4double zhalfsize = _phantomHalfLength;
     G4Box* LucitePhantom = new G4Box("LucitePhantom", xhalfsize, yhalfsize, zhalfsize); //Initial phase space covers 13 cm x 9 cm (i.e 6.5 x 4.5 half length)
     G4LogicalVolume* LucitePhantom_log = new G4LogicalVolume(LucitePhantom, lucite,"LucitePhantom_log");
@@ -242,8 +242,8 @@ G4VPhysicalVolume* DetectorConstruction::ConstructDetector()
     //160 x 120 = 19200 voxels. Seems like a lot, I hope it doesn't destroy me
 
     G4double resolution = 5*mm;
-    G4int xIncrements = 50; 
-    G4int yIncrements = 40;
+    G4int xIncrements = 60; 
+    G4int yIncrements = 60;
     G4int numVoxels = xIncrements*yIncrements;
 
     G4Box* ScoringXCuts = new G4Box("ScoringXCuts", resolution/2, yhalfsize, 0.5*mm); //1 mm thick slab to sit on top
