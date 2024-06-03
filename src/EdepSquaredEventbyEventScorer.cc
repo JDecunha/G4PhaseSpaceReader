@@ -18,9 +18,13 @@ G4bool EdepSquaredEventbyEventScorer::ProcessHits(G4Step* aStep, G4TouchableHist
 
   if (edep > 0)
   {
-    G4int indexa = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth);
-    G4int indexb = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth+1);
-    G4int index = (indexb*40)+indexa;
+    // For wide scorer
+    // G4int indexa = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth);
+    // G4int indexb = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth+1);
+    // G4int index = (indexb*60)+indexa;
+
+    G4int index = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth);
+
     //Add the energy deposition to the temporary edep histogram for this event (will be squared later)
     auto analysisManager = G4AnalysisManager::Instance();
     analysisManager->FillH1(2, index, edep);
