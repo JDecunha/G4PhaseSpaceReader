@@ -41,8 +41,8 @@ void ParallelWorldConstruction::Construct()
   G4LogicalVolume* motherWorldLogical = motherWorldPointer->GetLogicalVolume();
 
   //Define G4Box that the parameterisation will place many copies of
-  G4double xHalfSize = 2*cm; 
-  G4double yHalfSize = 2*cm;
+  G4double xHalfSize = 1*cm; 
+  G4double yHalfSize = 1*cm;
   G4double zHalfSize = phantomHalfSize;
 
   if (_phantomType == "LuciteBlock")
@@ -53,7 +53,7 @@ void ParallelWorldConstruction::Construct()
 
     G4Box* scoringBox = new G4Box("scoringBox", xHalfSize, yHalfSize, zHalfSize);
     G4LogicalVolume * scoringBox_logical = new G4LogicalVolume(scoringBox, 0, "scoringBox_logical", 0, 0, 0);
-    G4ThreeVector phantomOffset = G4ThreeVector(0, 0, ((-5*cm)+1.7*cm));
+    G4ThreeVector phantomOffset = G4ThreeVector(0, 0, ((-phantomHalfSize)+(1.7*cm)));
     G4VPhysicalVolume* scoringBox_physical = new G4PVPlacement(0, phantomOffset, scoringBox_logical, "scoringBox_logical", motherWorldLogical, false, 0, false);
 
     //Visualize scoring box
@@ -68,7 +68,7 @@ void ParallelWorldConstruction::Construct()
     G4int xIncrements = 1; G4int yIncrements = 1;
     G4int numVoxels = xIncrements*yIncrements*zIncrements;
 
-    G4Box* ScoringZCuts = new G4Box("ScoringZCuts", 1*cm, 1*cm, (zAxisResolution/2.));
+    G4Box* ScoringZCuts = new G4Box("ScoringZCuts", xHalfSize, yHalfSize, (zAxisResolution/2.));
     G4LogicalVolume* ScoringZCuts_log = new G4LogicalVolume(ScoringZCuts, 0,"ScoringZCutsLog");
     G4VPhysicalVolume* ScoringZCuts_physical = new G4PVReplica("ScoringZCutsPhysical",
                                                                 ScoringZCuts_log,
@@ -113,12 +113,12 @@ void ParallelWorldConstruction::Construct()
     scoringBox_logical->SetVisAttributes(scoring_vis);
 
     //Slice up the scoring box
-    G4double zAxisResolution = 0.01*mm;
+    G4double zAxisResolution = pDetectorConstruction->GetScoringResolution();
     G4int zIncrements = (0.3*2.*cm)/zAxisResolution; //Set zIncrements according to desired resolution 
     G4int xIncrements = 1; G4int yIncrements = 1;
     G4int numVoxels = xIncrements*yIncrements*zIncrements;
 
-    G4Box* ScoringZCuts = new G4Box("ScoringZCuts", 1*cm, 1*cm, (zAxisResolution/2.));
+    G4Box* ScoringZCuts = new G4Box("ScoringZCuts", xHalfSize, yHalfSize, (zAxisResolution/2.));
     G4LogicalVolume* ScoringZCuts_log = new G4LogicalVolume(ScoringZCuts, 0,"ScoringZCutsLog");
     G4VPhysicalVolume* ScoringZCuts_physical = new G4PVReplica("ScoringZCutsPhysical",
                                                                 ScoringZCuts_log,
