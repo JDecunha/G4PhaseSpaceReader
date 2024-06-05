@@ -5,7 +5,7 @@
 /analysis/verbose 1
 
 #Set output filename
-/analysis/openFile ../output/AllHP_100k_10mm_lateralProfile.root
+/analysis/openFile ../output/AllHP_10mil_10mm_lateralProfile.root
 
 #Initialize the run manager
 /run/initialize

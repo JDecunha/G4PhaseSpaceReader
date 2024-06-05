@@ -9,6 +9,7 @@
 
 #Initialize the run manager
 /run/initialize
+/run/printProgress 1000
 
 #Vis goes here (if you wanted it)
 
