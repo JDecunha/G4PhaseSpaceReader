@@ -11,6 +11,7 @@
 #include "G4Types.hh"
 #include "G4GenericPhysicsList.hh"
 #include "G4ParallelWorldPhysics.hh"
+#include "G4StepLimiterPhysics.hh"
 #ifdef G4MULTITHREADED
   #include "G4MTRunManager.hh"
 #else
@@ -112,6 +113,10 @@ int main(int argc,char** argv)
   G4String scoringWorldName = "ScoringWorld";
   pDetectorConstruction->RegisterParallelWorld(new ParallelWorldConstruction(scoringWorldName)); //Connect the detector construction to the parallel world. (This is done if you want to use layered mass geometry)
   pPhysicsList->RegisterPhysics(new G4ParallelWorldPhysics(scoringWorldName));
+
+  G4StepLimiterPhysics* stepLimitPhys = new G4StepLimiterPhysics();
+  // stepLimitPhys->SetApplyToAll(true);
+  pPhysicsList->RegisterPhysics(stepLimitPhys);
 
   // Set mandatory user initialization classes
   runManager->SetUserInitialization(pDetectorConstruction);

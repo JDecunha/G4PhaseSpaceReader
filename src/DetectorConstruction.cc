@@ -22,6 +22,7 @@
 #include "G4SDManager.hh"
 #include "G4MultiFunctionalDetector.hh"
 #include "G4RunManager.hh"
+#include "G4UserLimits.hh"
 
 DetectorConstruction::DetectorConstruction(G4String phantomType, G4double phantomHalfLength, G4double scoringResolution):G4VUserDetectorConstruction() , _phantomSetup(phantomType) , _phantomHalfLength(phantomHalfLength) , _scoringResolution(scoringResolution)
 {
@@ -76,6 +77,10 @@ G4VPhysicalVolume* DetectorConstruction::ConstructDetector()
     G4double zhalfsize = _phantomHalfLength;
     G4Box* LucitePhantom = new G4Box("LucitePhantom", xhalfsize, yhalfsize, zhalfsize); //Initial phase space covers 13 cm x 9 cm (i.e 6.5 x 4.5 half length)
     G4LogicalVolume* LucitePhantom_log = new G4LogicalVolume(LucitePhantom, lucite,"LucitePhantom_log");
+
+    G4double maxStep = 0.01*mm;
+    auto myStepLimit = new G4UserLimits(maxStep);
+    LucitePhantom_log->SetUserLimits(myStepLimit);
 
     //We want the upper surface of the phantom at 1.7 cm above isocenter. 
     //Because current experiments are made with snout 1.3 cm above isocenter
