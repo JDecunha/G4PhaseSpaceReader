@@ -5,12 +5,12 @@
 /analysis/verbose 1
 
 #Set output filename
-/analysis/openFile ../output/AllHP_10mil_10mm_isocenter_wideLateralProfile.root
+/analysis/openFile ../output/AllHP_100mil_highAxialResolution.root
 
 #Initialize the run manager
 /run/initialize
 
 #Vis goes here (if you wanted it)
 
-/run/beamOn 10000000
+/run/beamOn 100000000
 
