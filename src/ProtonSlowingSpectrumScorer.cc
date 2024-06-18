@@ -24,7 +24,12 @@ G4bool ProtonSlowingSpectrumScorer::ProcessHits(G4Step* aStep, G4TouchableHistor
     // G4int indexb = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth+1);
     // G4int index = (indexb*60)+indexa;
 
-    G4int index = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth);
+    // For well plate scorer
+    G4int indexa = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth);
+    G4int indexb = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth+1);
+    G4int index = (indexb*8)+indexa;
+
+    // G4int index = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth);
 
     G4double energy = aStep->GetPreStepPoint()->GetKineticEnergy();
     
