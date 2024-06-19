@@ -21,12 +21,12 @@ G4bool ProtonSpectrumScorer::ProcessHits(G4Step* aStep, G4TouchableHistory*)
   if(aStep->GetPreStepPoint()->GetStepStatus() == fGeomBoundary && aStep->GetTrack()->GetParticleDefinition()->GetParticleName() == "proton")
   {
     // For wide scorer
-    // G4int indexa = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth);
-    // G4int indexb = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth+1);
-    // G4int index = (indexb*60)+indexa;
+    G4int indexa = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth);
+    G4int indexb = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth+1);
+    G4int index = (indexb*60)+indexa;
 
     // For depth scoring and well plate scoring
-    G4int index = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth);
+    // G4int index = ((G4TouchableHistory*)(aStep->GetPreStepPoint()->GetTouchable()))->GetReplicaNumber(indexDepth);
 
     G4double energy = aStep->GetPreStepPoint()->GetKineticEnergy();
     
