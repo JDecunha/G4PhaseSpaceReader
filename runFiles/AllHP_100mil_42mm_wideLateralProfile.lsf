@@ -1,0 +1,15 @@
+﻿#!/bin/bash
+
+#BSUB -W 3:00
+#BSUB -o /rsrch3/home/radphys_rsch/jdecunha/seadragon2/G4PhaseSpaceReader/runOutput
+#BSUB -cwd /rsrch3/home/radphys_rsch/jdecunha/seadragon2/G4PhaseSpaceReader/build
+#BSUB -q short
+#BSUB -M 168
+#BSUB -R rusage[mem=168]
+#BSUB -n 28
+#BSUB -u jdecunha@mdanderson.org
+#BSUB -J AllHP_10mil_wide
+
+source /rsrch3/home/radphys_rsch/jdecunha/seadragon2/configure_sdr2.sh
+
+./G4PhaseSpaceReader -out ../output/test -mac ../macros/AllHP_100mil_42mm_wideLateralProfile.mac -seed 4094 -mt NMAX -phasespace /rsrch3/home/radphys_rsch/jdecunha/seadragon2/PhaseSpaces/G3_beamline_10mil.txt -hadronic_inelastic_physics G4HadronPhysicsQGSP_BIC_AllHP -phantom_Type LateralScoringWide -phantom_thickness 42 -scoring_resolution 0.1

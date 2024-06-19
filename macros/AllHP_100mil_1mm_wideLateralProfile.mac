@@ -1,0 +1,16 @@
+#Set verbosity
+/tracking/verbose 0
+/process/em/verbose 1
+/run/verbose 1
+/analysis/verbose 1
+
+#Set output filename
+/analysis/openFile ../output/AllHP_10mil_1mm_wideLateralProfile.root
+
+#Initialize the run manager
+/run/initialize
+
+#Vis goes here (if you wanted it)
+
+/run/beamOn 100000000
+
