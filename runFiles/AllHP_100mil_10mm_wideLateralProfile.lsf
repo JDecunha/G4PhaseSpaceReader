@@ -1,14 +1,14 @@
 ﻿#!/bin/bash
 
-#BSUB -W 3:00
+#BSUB -W 108:00
 #BSUB -o /rsrch3/home/radphys_rsch/jdecunha/seadragon2/G4PhaseSpaceReader/runOutput
 #BSUB -cwd /rsrch3/home/radphys_rsch/jdecunha/seadragon2/G4PhaseSpaceReader/build
-#BSUB -q short
+#BSUB -q long
 #BSUB -M 168
 #BSUB -R rusage[mem=168]
 #BSUB -n 28
 #BSUB -u jdecunha@mdanderson.org
-#BSUB -J AllHP_10mil_wide
+#BSUB -J AllHP_100mil_10mm_wide
 
 source /rsrch3/home/radphys_rsch/jdecunha/seadragon2/configure_sdr2.sh
 
