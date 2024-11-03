@@ -5,12 +5,12 @@
 /analysis/verbose 1
 
 #Set output filename
-/analysis/openFile ../output/AllHP_100mil_10mm_wideLateralProfile_newtrue100mil.root
+/analysis/openFile ../output/AllHP_1bil_10mm_wideLateralProfile_newPhaseSpace.root
 
 #Initialize the run manager
 /run/initialize
 
 #Vis goes here (if you wanted it)
 
-/run/beamOn 100000000
+/run/beamOn 1000000000
 

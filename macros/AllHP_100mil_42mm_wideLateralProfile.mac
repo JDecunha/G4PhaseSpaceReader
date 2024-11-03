@@ -5,7 +5,7 @@
 /analysis/verbose 1
 
 #Set output filename
-/analysis/openFile ../output/AllHP_100mil_42mm_wideLateralProfile.root
+/analysis/openFile ../output/AllHP_100mil_42mm_wideLateralProfile_newPhaseSpace.root
 
 #Initialize the run manager
 /run/initialize
