@@ -43,12 +43,12 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event)
     {
         if (currentItem == 1) {ptclType = std::stoi(word);}
         if (currentItem == 3) {energy = std::stod(word);}
-        if (currentItem == 5) {x = std::stod(word);}
-        if (currentItem == 6) {y = std::stod(word);}
-        if (currentItem == 7) {z = std::stod(word);}
-        if (currentItem == 8) {wx = std::stod(word);}
-        if (currentItem == 9) {wy = std::stod(word);}
-        if (currentItem == 10) {wz = std::stod(word);}
+        if (currentItem == 4) {x = std::stod(word);}
+        if (currentItem == 5) {y = std::stod(word);}
+        if (currentItem == 6) {z = std::stod(word);}
+        if (currentItem == 7) {wx = std::stod(word);}
+        if (currentItem == 8) {wy = std::stod(word);}
+        if (currentItem == 9) {wz = std::stod(word);}
 
         ++currentItem;
     }
