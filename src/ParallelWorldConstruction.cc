@@ -41,8 +41,8 @@ void ParallelWorldConstruction::Construct()
   G4LogicalVolume* motherWorldLogical = motherWorldPointer->GetLogicalVolume();
 
   //Define G4Box that the parameterisation will place many copies of
-  G4double xHalfSize = 1*cm; 
-  G4double yHalfSize = 1*cm;
+  G4double xHalfSize = 3*cm; 
+  G4double yHalfSize = 3*cm;
   G4double zHalfSize = phantomHalfSize;
 
   if (_phantomType == "LuciteBlock")
