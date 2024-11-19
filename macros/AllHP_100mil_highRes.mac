@@ -5,7 +5,7 @@
 /analysis/verbose 1
 
 #Set output filename
-/analysis/openFile ../output/AllHP_100mil_highAxialResolution_steplimited.root
+/analysis/openFile ../output/AllHP_100mil_highAxialResolution_9to15mm_steplimited.root
 
 #Initialize the run manager
 /run/initialize

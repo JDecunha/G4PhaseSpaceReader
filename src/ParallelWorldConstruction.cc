@@ -103,7 +103,7 @@ void ParallelWorldConstruction::Construct()
 
     */
 
-    G4ThreeVector phantomOffset = G4ThreeVector(0, 0, ((-0.3*cm)+(1.7*cm)-(3.7*cm)));
+    G4ThreeVector phantomOffset = G4ThreeVector(0, 0, ((-0.3*cm)+(1.7*cm)-(0.9*cm)));
     G4VPhysicalVolume* scoringBox_physical = new G4PVPlacement(0, phantomOffset, scoringBox_logical, "scoringBox_logical", motherWorldLogical, false, 0, false);
 
     //Visualize scoring box
